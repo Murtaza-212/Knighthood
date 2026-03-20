@@ -74,9 +74,6 @@
   * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
-    background:
-      radial-gradient(ellipse at 50% 20%, #0d0e1a 0%, #07080f 70%),
-      #07080f;
     color: var(--text);
     font-family: var(--font-body);
     min-height: 100vh;
@@ -2122,6 +2119,120 @@
     .tab { font-size: 8px; padding: 8px 9px; }
     .tab-group-label { font-size: 10px; margin: 0 1px; }
   }
+
+  /* Toggle button */
+  #theme-toggle {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    z-index: 9997;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  #theme-toggle:hover { border-color: var(--gold); transform: scale(1.1); }
+
+  /* ===== THEME SYSTEM ===== */
+
+  /* Dark mode (default) — deep navy void */
+  :root, body {
+    --bg:      #0b0c14;
+    --bg2:     #10111e;
+    --panel:   #13141f;
+    --border:  #1e2035;
+  }
+  body {
+    background: var(--bg);
+  }
+  /* Kill the starfield pseudo-elements in dark — they add noise */
+  body::before, body::after { display: none; }
+
+  /* Light mode — warm aged parchment */
+  body.light-mode {
+    --bg:        #f2ede4;
+    --bg2:       #e8e2d6;
+    --panel:     #faf6ef;
+    --border:    #ccc2a8;
+    --text:      #1c140a;
+    --text-dim:  #7a6848;
+    --accent:    #b06a08;
+    --accent2:   #8c1c1c;
+    --gold:      #a85e06;
+    --green:     #1e6e30;
+    --red:       #a82020;
+    --orange:    #b85208;
+    --glow:      0 0 20px rgba(168,94,6,0.2);
+    --glow2:     0 0 20px rgba(140,28,28,0.2);
+
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* Light mode — component overrides */
+  .light-mode .header {
+    background: linear-gradient(180deg, #1a0c04 0%, #2c1808 60%, #3a2010 100%);
+  }
+  .light-mode .tabs {
+    background: var(--bg2);
+    border-bottom-color: var(--border);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  }
+  .light-mode .tab           { color: var(--text-dim); }
+  .light-mode .tab:hover     { color: var(--text); }
+  .light-mode .tab.active    { color: var(--gold); border-bottom-color: var(--gold); background: rgba(168,94,6,0.06); }
+  .light-mode .card          { background: var(--panel); border-color: var(--border); }
+  .light-mode .card:hover    { border-color: rgba(168,94,6,0.4); }
+  .light-mode .mission-item  { background: var(--bg); border-color: var(--border); }
+  .light-mode .mission-item:hover { background: rgba(168,94,6,0.04); border-color: rgba(168,94,6,0.25); }
+  .light-mode .mission-item.done  { background: rgba(168,94,6,0.06); border-color: rgba(168,94,6,0.3); }
+  .light-mode .mission-item.done::before { background: var(--gold); }
+  .light-mode .mission-text  { color: var(--text); }
+  .light-mode .mission-xp    { color: var(--green); }
+  .light-mode .stat-box      { background: var(--bg2); border-color: var(--border); }
+  .light-mode .sec-title     { color: var(--text-dim); border-color: var(--border); }
+  .light-mode .card-title    { color: var(--accent); }
+  .light-mode .level-card    { background: var(--panel); border-color: var(--border); }
+  .light-mode .badge         { background: var(--bg2); border-color: var(--border); }
+  .light-mode .badge.earned  { background: rgba(168,94,6,0.07); border-color: rgba(168,94,6,0.3); }
+  .light-mode .highlight     { color: var(--accent); }
+  .light-mode .seal-btn      { background: linear-gradient(135deg, var(--accent2), var(--accent)); }
+  .light-mode #rank-banner   { border-color: rgba(168,94,6,0.2); }
+  .light-mode ::-webkit-scrollbar-track { background: var(--bg2); }
+  .light-mode ::-webkit-scrollbar-thumb { background: var(--border); }
+  .light-mode ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+  .light-mode #ember-canvas  { opacity: 0.2; filter: hue-rotate(20deg); }
+
+  /* Toggle button */
+  #theme-toggle {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    z-index: 9997;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  #theme-toggle:hover { border-color: var(--gold); transform: scale(1.1); }
 </style>
 
 <!-- Firebase SDKs (loaded from CDN — only used when online) -->
@@ -5229,7 +5340,28 @@ function runBreath() {
 // =========================================
 // BOOT
 // =========================================
+// =========================================
+// LIGHT / DARK MODE TOGGLE
+// =========================================
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light-mode');
+  document.getElementById('theme-toggle').textContent = isLight ? '☀️' : '🌙';
+  try { localStorage.setItem('fitness_theme', isLight ? 'light' : 'dark'); } catch(e) {}
+}
+
+function loadTheme() {
+  try {
+    const saved = localStorage.getItem('fitness_theme');
+    if (saved === 'light') {
+      document.body.classList.add('light-mode');
+      const btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = '☀️';
+    }
+  } catch(e) {}
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  loadTheme();
   loadState();
 
   const today     = todayStr();
@@ -6682,7 +6814,8 @@ function showSealOverlay(xp) {
   document.getElementById('seal-overlay-msg').textContent   = msg;
 
   // Re-trigger animation
-  const content = document.getElementById('seal-overlay-content');
+  const content =
+ document.getElementById('seal-overlay-content');
   content.style.animation = 'none';
   void content.offsetWidth;
   content.style.animation = '';
@@ -6773,5 +6906,6 @@ function renderQuestMapDetail() {
     </div>
   </div>
 
+<button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
 </body>
 </html>
