@@ -2258,7 +2258,7 @@ function exportScroll() {
 }
 
 function importScroll(input) {
-  const file = input.files[0];
+  const file = input && input.files && input.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = (e) => {
@@ -2515,12 +2515,12 @@ function importScroll(input) {
       </div>
       <div id="squire-oaths" class="collapsible-body">
         <div class="mission-grid" style="margin-top:8px;">
-          <div class="mission-item" id="m-b1" onclick="toggleMission(this,'b1',0)"><div class="mission-check"></div><div><div class="mission-text">🌙 8 hours of sleep</div></div></div>
-          <div class="mission-item" id="m-b2" onclick="toggleMission(this,'b2',0)"><div class="mission-check"></div><div><div class="mission-text">🧘 5 min meditation</div></div></div>
-          <div class="mission-item" id="m-b3" onclick="toggleMission(this,'b3',0)"><div class="mission-check"></div><div><div class="mission-text">📵 No phone first 30 min</div></div></div>
-          <div class="mission-item" id="m-b4" onclick="toggleMission(this,'b4',0)"><div class="mission-check"></div><div><div class="mission-text">🥗 Clean meal consumed</div></div></div>
-          <div class="mission-item" id="m-b5" onclick="toggleMission(this,'b5',0)"><div class="mission-check"></div><div><div class="mission-text">📖 10 min reading</div></div></div>
-          <div class="mission-item" id="m-b6" onclick="toggleMission(this,'b6',0)"><div class="mission-check"></div><div><div class="mission-text">🌅 Morning routine completed</div></div></div>
+          <div class="mission-item" id="m-b1" onclick="toggleMission(this,'b1',0)"><div class="mission-check"></div><div><div class="mission-text">🌙 8 hours of sleep</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b2" onclick="toggleMission(this,'b2',0)"><div class="mission-check"></div><div><div class="mission-text">🧘 5 min meditation</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b3" onclick="toggleMission(this,'b3',0)"><div class="mission-check"></div><div><div class="mission-text">📵 No phone first 30 min</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b4" onclick="toggleMission(this,'b4',0)"><div class="mission-check"></div><div><div class="mission-text">🥗 Clean meal consumed</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b5" onclick="toggleMission(this,'b5',0)"><div class="mission-check"></div><div><div class="mission-text">📖 10 min reading</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b6" onclick="toggleMission(this,'b6',0)"><div class="mission-check"></div><div><div class="mission-text">🌅 Morning routine completed</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
         </div>
       </div>
     </div>
@@ -4475,6 +4475,7 @@ function importScroll(input) {
       <div style="display:flex;gap:8px;flex-wrap:wrap;">
         <button id="export-btn" onclick="exportScroll()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:var(--panel);border:1px solid var(--green);color:var(--green);cursor:pointer;font-weight:700;">⬇ EXPORT SCROLL</button>
         <button onclick="document.getElementById('import-scroll-input').click()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:var(--panel);border:1px solid var(--blue);color:var(--blue);cursor:pointer;font-weight:700;">⬆ IMPORT SCROLL</button>
+        <input type="file" id="import-scroll-input" accept=".json" style="display:none;" onchange="importScroll(this)">
       </div>
     </div>
 
@@ -5408,6 +5409,7 @@ document.addEventListener('DOMContentLoaded', function() {
   updateRankBanner();
   renderAllNewPanels();
   initNewFeatures();
+  switchTab('daily');  // Always open on Daily Quest tab
   setTimeout(runBreath, 600);
 
   // Try to init Firebase if config was previously saved
@@ -6797,8 +6799,10 @@ function showSealOverlay(xp) {
     20:  'One oath. The flame still burns.',
     0:   'No honour today. Rest, and return with fire.'
   };
-  const icon  = ICONS[xp]  || '⚔';
-  const msg   = MSGS[xp]   || 'The oath is sealed.';
+  // Round to nearest 20 for icon/message lookup (handles penalty-adjusted values)
+  const xpBand = Math.round(xp / 20) * 20;
+  const icon  = ICONS[xpBand] || ICONS[xp] || '⚔';
+  const msg   = MSGS[xpBand]  || MSGS[xp]  || 'The oath is sealed.';
   const title = xp >= 100  ? 'PERFECT VIGIL'
               : xp >= 60   ? 'OATH SEALED'
               : xp >= 20   ? 'PARTIAL VIGIL'
