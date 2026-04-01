@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- PATH TO KNIGHTHOOD — BUILD v5 — CACHE CLEARED -->
 <head>
+<!-- PATH TO KNIGHTHOOD — BUILD v3758 -->
 <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<meta name="theme-color" content="#07080f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#c8922a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Path to Knighthood">
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="manifest" href="data:application/json,{
-  %22name%22:%22Path%20to%20Knighthood%22,
-  %22short_name%22:%22Knighthood%22,
-  %22description%22:%22A%203-year%20gamified%20fitness%20quest%22,
-  %22start_url%22:%22.%22,
-  %22display%22:%22standalone%22,
-  %22background_color%22:%22%230e0a06%22,
-  %22theme_color%22:%22%23c8922a%22,
-  %22icons%22:[{%22src%22:%22data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔</text></svg>%22,%22sizes%22:%22any%22,%22type%22:%22image/svg+xml%22}]
-}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PATH TO KNIGHTHOOD</title>
+<title>PATH TO KNIGHTHOOD v5</title>
 <link rel="manifest" href="data:application/json;charset=utf-8,{
   &quot;name&quot;: &quot;Path to Knighthood&quot;,
   &quot;short_name&quot;: &quot;Knighthood&quot;,
@@ -36,10 +31,6 @@
     &quot;type&quot;: &quot;image/svg+xml&quot;
   }]
 }">
-<meta name="theme-color" content="#c8922a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Knighthood">
 
 <style>
   :root {
@@ -47,6 +38,26 @@
     --font-body:    'Crimson Text', 'Georgia', 'Times New Roman', serif;
     --font-mono:    'Courier New', 'Lucida Console', monospace;
     --font-deco:    'Cinzel Decorative', 'Cinzel', serif;
+
+    /* Design tokens */
+    --radius-sm:    4px;
+    --radius-md:    8px;
+    --radius-full:  9999px;
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s ease;
+
+    /* Semantic layer (shadcn-inspired) */
+    --interactive:       var(--accent);
+    --interactive-hover: var(--gold);
+    --muted:             var(--bg2);
+    --subtle:            var(--panel);
+    --ring:              var(--gold);
+    --destructive:       var(--accent2);
+
+    /* Line height tokens */
+    --lh-tight:   1.2;
+    --lh-snug:    1.4;
+    --lh-normal:  1.6;
   }
   :root {
     --bg:        #07080f;
@@ -63,7 +74,7 @@
     --blue:      #3498db;
     --purple:    #9b59b6;
     --text:      #dce4f5;
-    --text-dim:  #4a5270;
+    --text-dim:  #8892aa;
     --ember:     #ff6b35;
     --arcane:    #7c4dff;
     --glow:      0 0 24px rgba(232,160,32,0.4);
@@ -74,9 +85,6 @@
   * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
-    background:
-      radial-gradient(ellipse at 50% 20%, #0d0e1a 0%, #07080f 70%),
-      #07080f;
     color: var(--text);
     font-family: var(--font-body);
     min-height: 100vh;
@@ -698,7 +706,7 @@
     .container { padding: 12px; }
     .card { padding: 14px 14px; }
     .mission-item { padding: 10px 12px; }
-    .stat-val { font-size: 22px; }
+    .stat-val { font-size: 20px; }
     .sec-title { font-size: 11px; letter-spacing: 2px; }
     .header { padding: 28px 16px 20px; }
     .badge-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
@@ -804,7 +812,7 @@
     display: inline-block;
     padding: 2px 8px;
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 1px;
     border: 1px solid var(--accent);
     color: var(--accent);
@@ -916,7 +924,7 @@
     position: absolute;
     top: 6px; right: 6px;
     font-family: var(--font-mono);
-    font-size: 8px;
+    font-size: 10px;
     color: var(--gold);
     letter-spacing: 1px;
   }
@@ -1042,7 +1050,7 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .timer-preset:hover { border-color: var(--accent); color: var(--gold); }
-  .timer-preset span { font-size: 9px; color: var(--text-dim); display: block; margin-top: 3px; }
+  .timer-preset span { font-size: 11px; color: var(--text-dim); display: block; margin-top: 3px; }
 
   /* ===== RECORDS ===== */
   .record-input-group { display: flex; flex-direction: column; gap: 4px; }
@@ -1066,8 +1074,8 @@
     text-align: center;
   }
   .pb-val { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--gold); }
-  .pb-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); letter-spacing: 1px; margin-top: 4px; }
-  .pb-date { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); margin-top: 2px; }
+  .pb-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); letter-spacing: 1px; margin-top: 4px; }
+  .pb-date { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-top: 2px; }
   .session-entry {
     padding: 10px 14px;
     border-bottom: 1px solid var(--border);
@@ -1100,7 +1108,7 @@
     border: 1px solid var(--border);
     color: var(--text);
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     padding: 3px 6px;
     white-space: nowrap;
     display: none;
@@ -1177,7 +1185,7 @@
   }
   .sec-title::before, .sec-title::after {
     content: '◆';
-    font-size: 8px;
+    font-size: 10px;
     color: var(--accent);
     opacity: 0.6;
   }
@@ -1257,6 +1265,7 @@
     font-weight: 700;
     letter-spacing: 3px;
     padding: 16px 24px;
+    min-height: 52px;
     background: linear-gradient(135deg, var(--accent2), rgba(232,160,32,0.8));
     color: #fff;
     border: none;
@@ -1277,7 +1286,7 @@
   /* Small sync buttons */
   .sync-btn {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 1.5px;
     padding: 6px 12px;
     background: transparent;
@@ -1312,7 +1321,7 @@
   }
   .badge-earned-tag {
     font-family: var(--font-mono);
-    font-size: 7px;
+    font-size: 10px;
     color: var(--gold);
     letter-spacing: 2px;
     margin-bottom: 4px;
@@ -1320,7 +1329,7 @@
   .badge-icon { font-size: 20px; margin-bottom: 6px; }
   .badge-name {
     font-family: var(--font-display);
-    font-size: 9px;
+    font-size: 11px;
     color: var(--gold);
     letter-spacing: 1px;
     margin-bottom: 4px;
@@ -1378,7 +1387,7 @@
   .info-item:last-child { border-bottom: none; }
   .info-label {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     color: var(--accent);
     letter-spacing: 1px;
     min-width: 120px;
@@ -1401,7 +1410,7 @@
     content: '◆';
     position: absolute;
     left: 0;
-    font-size: 7px;
+    font-size: 10px;
     color: var(--lc, var(--accent));
     top: 8px;
   }
@@ -1409,7 +1418,7 @@
   /* Unlock bar */
   .unlock-bar {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     color: var(--accent);
     letter-spacing: 1.5px;
     padding: 8px 10px;
@@ -1462,7 +1471,7 @@
   }
   .level-timeline {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     color: var(--text-dim);
     letter-spacing: 2px;
     margin-bottom: 10px;
@@ -1493,7 +1502,7 @@
   }
   .stat-label {
     font-family: var(--font-mono);
-    font-size: 8px;
+    font-size: 10px;
     color: var(--text-dim);
     letter-spacing: 2px;
     margin-top: 4px;
@@ -1501,7 +1510,7 @@
   }
   .stat-sub {
     font-family: var(--font-mono);
-    font-size: 8px;
+    font-size: 10px;
     color: var(--text-dim);
     margin-top: 2px;
   }
@@ -1526,7 +1535,7 @@
   }
   .small-mono {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     color: var(--text-dim);
     letter-spacing: 1px;
   }
@@ -1544,8 +1553,8 @@
     padding: 8px 4px;
     text-align: center;
   }
-  .day-name { font-family: var(--font-display); font-size: 9px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
-  .day-type { font-family: var(--font-mono); font-size: 8px; letter-spacing: 1px; margin: 4px 0; text-transform: uppercase; }
+  .day-name { font-family: var(--font-display); font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .day-type { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px; margin: 4px 0; text-transform: uppercase; }
   .day-focus { font-family: var(--font-body); font-size: 10px; color: var(--text-dim); line-height: 1.3; }
   .type-str    { color: var(--gold); }
   .type-cardio { color: var(--blue); }
@@ -1566,11 +1575,11 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .timer-preset:hover { border-color: var(--accent); color: var(--gold); }
-  .timer-preset span { font-size: 8px; color: var(--text-dim); display: block; margin-top: 3px; }
+  .timer-preset span { font-size: 10px; color: var(--text-dim); display: block; margin-top: 3px; }
 
   /* Record inputs */
   .record-input-group { display: flex; flex-direction: column; gap: 4px; }
-  .record-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .record-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
   .record-input {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -1586,11 +1595,11 @@
   .record-input:focus { border-color: var(--gold); }
   .pb-card { background: var(--bg2); border: 1px solid var(--border); padding: 12px; text-align: center; }
   .pb-val { font-family: var(--font-deco); font-size: 22px; font-weight: 700; color: var(--gold); }
-  .pb-label { font-family: var(--font-mono); font-size: 8px; color: var(--text-dim); letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
-  .pb-date { font-family: var(--font-mono); font-size: 8px; color: var(--text-dim); margin-top: 2px; }
+  .pb-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
+  .pb-date { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); margin-top: 2px; }
   .session-entry { padding: 9px 12px; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--text-dim); }
   .session-entry:last-child { border-bottom: none; }
-  .session-date { font-family: var(--font-mono); font-size: 9px; color: var(--accent); margin-bottom: 3px; letter-spacing: 1px; }
+  .session-date { font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-bottom: 3px; letter-spacing: 1px; }
 
   /* Chart bars */
   .chart-bar {
@@ -1605,7 +1614,7 @@
   .chart-bar-tooltip {
     position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
     background: var(--panel); border: 1px solid var(--border);
-    color: var(--text); font-family: var(--font-mono); font-size: 8px;
+    color: var(--text); font-family: var(--font-mono); font-size: 10px;
     padding: 2px 5px; white-space: nowrap; display: none; z-index: 10;
   }
   .chart-bar:hover .chart-bar-tooltip { display: block; }
@@ -1623,7 +1632,7 @@
   .sync-dot.online  { background: var(--green); box-shadow: 0 0 5px var(--green); }
   .sync-dot.syncing { background: var(--gold); box-shadow: 0 0 5px var(--gold); animation: pulse 0.8s infinite; }
   .sync-dot.error   { background: var(--red); box-shadow: 0 0 5px var(--red); }
-  .sync-status { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .sync-status { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
 
   /* FAQ accordion */
   .faq-item { border: 1px solid var(--border); margin-bottom: 6px; }
@@ -1678,8 +1687,8 @@
   }
   .pr-card:hover { border-color: rgba(232,160,32,0.3); }
   .pr-val { font-family: var(--font-deco); font-size: 26px; font-weight: 700; color: var(--gold); }
-  .pr-unit { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
-  .pr-date { font-family: var(--font-mono); font-size: 8px; color: var(--text-dim); margin-top: 2px; }
+  .pr-unit { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .pr-date { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 
   /* Map path */
   .map-path { margin-top: 8px; }
@@ -1689,7 +1698,7 @@
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
   /* Injury btn */
-  #injury-btn { font-family: var(--font-mono); font-size: 9px; letter-spacing: 1px; padding: 10px 12px; }
+  #injury-btn { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; padding: 10px 12px; }
 
 
   /* Responsive mission grid — single column on narrow screens */
@@ -1709,7 +1718,7 @@
   /* Collapsible section smooth reveal */
   .collapsible-/* body collapsible rule removed */
   .collapsible-body.open {
-    max-height: 2000px;
+    max-height: 8000px;
   }
 
 
@@ -1752,7 +1761,7 @@
   }
   .measure-label {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     color: var(--text-dim);
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -2082,7 +2091,7 @@
 
   .tab {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 1px;
     padding: 10px 12px;
     cursor: pointer;
@@ -2119,65 +2128,336 @@
 
   @media (max-width: 640px) {
     .panel { padding: 14px 14px; }
-    .tab { font-size: 8px; padding: 8px 9px; }
+    .tab { font-size: 10px; padding: 8px 9px; }
     .tab-group-label { font-size: 10px; margin: 0 1px; }
   }
+
+  /* Toggle button */
+  #theme-toggle {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    z-index: 9997;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  #theme-toggle:hover { border-color: var(--gold); transform: scale(1.1); }
+
+  /* ===== THEME SYSTEM ===== */
+
+  /* Dark mode (default) — deep navy void */
+  :root, body {
+    --bg:      #0b0c14;
+    --bg2:     #10111e;
+    --panel:   #13141f;
+    --border:  #1e2035;
+  }
+  body {
+    background: var(--bg);
+  }
+  /* Kill the starfield pseudo-elements in dark — they add noise */
+  body::before, body::after { display: none; }
+
+  /* Light mode — warm aged parchment (all vars in one block) */
+  body.light-mode {
+    --bg:        #f2ede4;
+    --bg2:       #e8e2d6;
+    --panel:     #faf6ef;
+    --border:    #ccc2a8;
+    --text:      #1c140a;
+    --text-dim:  #6b5e42;
+    --accent:    #b06a08;
+    --accent2:   #8c1c1c;
+    --gold:      #a85e06;
+    --green:     #1e6e30;
+    --red:       #a82020;
+    --orange:    #b85208;
+    --arcane:    #6d28d9;
+    --blue:      #1d4ed8;
+    --ember:     #b45309;
+    --purple:    #7c3aed;
+    --yellow:    #d97706;
+    --glow:      0 0 20px rgba(168,94,6,0.2);
+    --glow2:     0 0 20px rgba(140,28,28,0.2);
+    --glow3:     0 0 20px rgba(109,40,217,0.15);
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* Light mode — header & nav */
+  .light-mode .header    { background: linear-gradient(180deg, #1a0c04 0%, #2c1808 60%, #3a2010 100%); }
+  .light-mode .tabs      { background: var(--bg2); border-bottom-color: var(--border); box-shadow: 0 1px 8px rgba(0,0,0,0.12); }
+  .light-mode .tab       { color: var(--text-dim); }
+  .light-mode .tab:hover { color: var(--text); }
+  .light-mode .tab.active { color: var(--gold); border-bottom-color: var(--gold); background: rgba(168,94,6,0.06); }
+
+  /* Light mode — cards & panels */
+  .light-mode .card            { background: var(--panel); border-color: var(--border); }
+  .light-mode .card:hover      { border-color: rgba(168,94,6,0.4); }
+  .light-mode .panel           { background: var(--bg); }
+  .light-mode .card-title      { color: var(--accent); }
+  .light-mode .level-card      { background: var(--panel); border-color: var(--border); }
+  .light-mode .sec-title       { color: var(--text-dim); border-color: var(--border); }
+
+  /* Light mode — missions */
+  .light-mode .mission-item          { background: var(--bg); border-color: var(--border); }
+  .light-mode .mission-item:hover    { background: rgba(168,94,6,0.04); border-color: rgba(168,94,6,0.25); }
+  .light-mode .mission-item.done     { background: rgba(168,94,6,0.06); border-color: rgba(168,94,6,0.3); }
+  .light-mode .mission-item.done::before { background: var(--gold); }
+  .light-mode .mission-text  { color: var(--text); }
+  .light-mode .mission-check { border-color: var(--border); }
+  .light-mode .mission-xp    { color: var(--green); }
+
+  /* Light mode — stats */
+  .light-mode .stat-box   { background: var(--bg2); border-color: var(--border); }
+  .light-mode .stat-val   { color: var(--text); }
+  .light-mode .stat-label { color: var(--text-dim); }
+
+  /* Light mode — badges */
+  .light-mode .badge        { background: var(--bg2); border-color: var(--border); }
+  .light-mode .badge.earned { background: rgba(168,94,6,0.07); border-color: rgba(168,94,6,0.3); }
+  .light-mode .badge-name   { color: var(--text); }
+  .light-mode .badge-desc   { color: var(--text-dim); }
+  .light-mode .badge-earned-tag { background: var(--gold); color: #fff; }
+
+  /* Light mode — highlights & buttons */
+  .light-mode .highlight   { color: var(--accent); }
+  .light-mode .highlight2  { color: var(--accent2); }
+  .light-mode .seal-btn    { background: linear-gradient(135deg, var(--accent2), var(--accent)); }
+
+  /* Light mode — scrollbars */
+  .light-mode ::-webkit-scrollbar-track { background: var(--bg2); }
+  .light-mode ::-webkit-scrollbar-thumb { background: var(--border); }
+  .light-mode ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* Light mode — misc overlays */
+  .light-mode #rank-banner  { border-color: rgba(168,94,6,0.2); }
+  .light-mode #ember-canvas { opacity: 0.2; filter: hue-rotate(20deg); }
+  .light-mode #seal-overlay { background: rgba(242,237,228,0.92); }
+  .light-mode #seal-overlay-content { background: var(--panel); border-color: var(--border); }
+  .light-mode #seal-overlay-title { color: var(--text); }
+  .light-mode #seal-overlay-msg   { color: var(--text-dim); }
+  .light-mode #rank-ceremony-panel { background: var(--panel); border-color: var(--border); }
+
+  /* Light mode — inputs & forms */
+  .light-mode .sync-setup   { background: var(--panel); border-color: var(--border); }
+  .light-mode .sync-btn     { border-color: var(--border); color: var(--text-dim); }
+  .light-mode .record-input { background: var(--bg2); border-color: var(--border); color: var(--text); }
+  .light-mode textarea,
+  .light-mode input[type="text"],
+  .light-mode input[type="password"],
+  .light-mode input[type="number"],
+  .light-mode select        { background: var(--bg2); border-color: var(--border); color: var(--text); }
+  .light-mode .timer-preset { background: var(--panel); border-color: var(--border); color: var(--text-dim); }
+  .light-mode .timer-preset:hover { border-color: var(--gold); color: var(--text); }
+
+  /* Light mode — FAQ */
+  .light-mode .faq-item     { border-color: var(--border); }
+  .light-mode .faq-q        { background: var(--panel); color: var(--text); }
+  .light-mode .faq-q:hover  { background: var(--bg2); }
+  .light-mode .faq-a        { background: var(--bg2); color: var(--text-dim); }
+  .light-mode .faq-arrow    { color: var(--text-dim); }
+  .light-mode .faq-tag      { background: var(--bg); color: var(--text-dim); border-color: var(--border); }
+
+  /* Light mode — session log & history */
+  .light-mode .session-entry { border-color: var(--border); color: var(--text-dim); }
+  .light-mode .session-date  { color: var(--text-dim); }
+
+  /* Light mode — progress bars */
+  .light-mode .prog-bar   { background: var(--border); }
+  .light-mode .unlock-bar { background: var(--border); }
+  .light-mode .week-bar   { background: var(--border); }
+
+  /* Light mode — XP log */
+  .light-mode .xp-item  { border-color: var(--border); }
+  .light-mode .xp-label { color: var(--text-dim); }
+  .light-mode .xp-val   { color: var(--green); }
+  .light-mode .xp-neg   { color: var(--red); }
+
+  /* Light mode — body measurements, PB, PR */
+  .light-mode .measure-card  { background: var(--panel); border-color: var(--border); }
+  .light-mode .measure-label { color: var(--text-dim); }
+  .light-mode .measure-val   { color: var(--text); }
+  .light-mode .pb-card       { background: var(--panel); border-color: var(--border); }
+  .light-mode .pb-label      { color: var(--text-dim); }
+  .light-mode .pb-val        { color: var(--accent); }
+  .light-mode .pb-date       { color: var(--text-dim); }
+  .light-mode .pr-card       { background: var(--panel); border-color: var(--border); }
+  .light-mode .pr-exercise   { color: var(--text); }
+  .light-mode .pr-value      { color: var(--accent); }
+  .light-mode .pr-unit       { color: var(--text-dim); }
+  .light-mode .pr-date       { color: var(--text-dim); }
+
+  /* Light mode — muscle map & boss cards */
+  .light-mode .mm-card   { background: var(--panel); border-color: var(--border); }
+  .light-mode .mm-muscle { color: var(--text); }
+  .light-mode .mm-cue    { color: var(--text-dim); }
+  .light-mode .mm-test   { color: var(--text-dim); }
+  .light-mode .boss-item { border-color: var(--border); background: var(--bg2); }
+  .light-mode .boss-name { color: var(--text); }
+  .light-mode .boss-req  { color: var(--text-dim); }
+
+  /* Light mode — hydration & tracking */
+  .light-mode .hydro-row    { border-color: var(--border); }
+  .light-mode .hydro-time   { color: var(--text-dim); }
+  .light-mode .hydro-amount { color: var(--blue); }
+  .light-mode .hydro-note   { color: var(--text-dim); }
+  .light-mode .track-row    { border-color: var(--border); }
+  .light-mode .track-name   { color: var(--text); }
+  .light-mode .track-freq   { color: var(--text-dim); }
+  .light-mode .track-xp     { color: var(--green); }
+
+  /* Light mode — exercise table & tags */
+  .light-mode .ex-table { border-color: var(--border); color: var(--text); }
+  .light-mode .ex-name  { color: var(--text); }
+  .light-mode .ex-tag   { background: var(--bg2); color: var(--text-dim); border-color: var(--border); }
+
+  /* Light mode — review & info */
+  .light-mode .review-label { color: var(--text-dim); }
+  .light-mode .review-val   { color: var(--text); }
+  .light-mode .review-stat  { color: var(--text-dim); }
+  .light-mode .info-item    { border-color: var(--border); }
+  .light-mode .info-label   { color: var(--text-dim); }
+  .light-mode .info-val     { color: var(--text); }
+
+  /* Light mode — charts & monthly */
+  .light-mode .chart-bar-tooltip { background: var(--panel); border-color: var(--border); color: var(--text); }
+  .light-mode .monthly-row       { border-color: var(--border); }
+  .light-mode .monthly-name      { color: var(--text-dim); }
+  .light-mode .monthly-val       { color: var(--text); }
+  .light-mode .monthly-bar-wrap  { background: var(--border); }
+
+  /* Light mode — breathing, reward, day grid */
+  .light-mode .breath-anim  { color: var(--text); border-color: rgba(168,94,6,0.4); }
+  .light-mode .reward-tier  { background: var(--panel); border-color: var(--border); }
+  .light-mode .reward-desc  { color: var(--text-dim); }
+  .light-mode .day-card     { background: var(--panel); border-color: var(--border); }
+  .light-mode .day-name     { color: var(--text-dim); }
+  .light-mode .day-type     { color: var(--text-dim); }
+  .light-mode .day-focus    { color: var(--text); }
+
+  /* Light mode — timeline & final rules */
+  .light-mode .pain-title    { color: var(--text-dim); }
+  .light-mode .tl-time       { color: var(--text-dim); }
+  .light-mode .tl-title      { color: var(--text); }
+  .light-mode .final-rule    { border-color: var(--border); }
+  .light-mode .final-rule-title { color: var(--accent); }
+
+  /* Touch targets — WCAG 2.1 minimum 44px */
+  button {
+    min-height: 44px;
+    cursor: pointer;
+  }
+  button[style*="padding:8px"], button[style*="padding: 8px"] {
+    min-height: 44px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* Information hierarchy — today's honour is primary */
+  .stat-box:first-child {
+    border-color: rgba(245,200,66,0.35);
+    background: linear-gradient(135deg, rgba(245,200,66,0.06), var(--bg2));
+  }
+  .stat-box:first-child .stat-val {
+    font-size: 32px;
+    color: var(--gold);
+    font-family: var(--font-deco);
+  }
+
+  /* Card elevation system (shadcn-inspired) */
+  .card { box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+  .card.elevated {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    border-color: rgba(232,160,32,0.25);
+  }
+  .card.overlay {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+    border-color: rgba(245,200,66,0.3);
+  }
+
+  /* Button hover states (ghost variant) */
+  button:not(.seal-btn):hover {
+    border-color: rgba(232,160,32,0.4) !important;
+    color: var(--text) !important;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  /* Form elements — focus ring (shadcn --ring pattern) */
+  textarea:focus, input:focus, select:focus {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px rgba(245,200,66,0.2);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  textarea, input[type="text"], input[type="password"], input[type="email"] {
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition-fast);
+  }
+  textarea:hover, input:hover {
+    border-color: rgba(232,160,32,0.3);
+  }
+
+  /* XP ring pulse on update */
+  @keyframes ringPulse {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+  .xp-ring-pulse { animation: ringPulse 0.4s var(--transition-base); }
+
+  /* Day sealed state */
+  .day-sealed #panel-daily .card:first-of-type {
+    border-color: rgba(46,204,113,0.3);
+    box-shadow: 0 0 20px rgba(46,204,113,0.08);
+    transition: border-color 0.5s, box-shadow 0.5s;
+  }
+
+  /* Accessibility: respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Accessibility: skip navigation link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 8px;
+    padding: 8px 16px;
+    background: var(--gold);
+    color: #000;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 99999;
+    border-radius: var(--radius-sm);
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 8px; }
 </style>
 
 <!-- Firebase SDKs (loaded from CDN — only used when online) -->
-<script type="module" id="firebase-module">
-// Firebase config is injected by user via the setup panel
-// This module initialises Firebase only after the user provides credentials
-window.__firebaseReady = false;
-window.__fbApp = null;
-window.__fbDb  = null;
 
-// =========================================
-// EXPORT / IMPORT SCROLL (B7 fix)
-// =========================================
-function exportScroll() {
-  const data = JSON.stringify(state, null, 2);
-  const blob = new Blob([data], { type: 'application/json' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = 'path-to-knighthood-backup-' + todayStr() + '.json';
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function importScroll(input) {
-  const file = input.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    try {
-      const imported = JSON.parse(e.target.result);
-      if (!imported.totalXP && imported.totalXP !== 0) {
-        alert('Invalid scroll file — does not appear to be a Path to Knighthood backup.');
-        return;
-      }
-      if (!confirm('Import this scroll? Your current progress will be replaced with the backup.')) return;
-      state = Object.assign(state, imported);
-      saveState();
-      updateAllDisplays();
-      updateRankBanner();
-      checkStreakMilestone(state.streak || 0);
-  checkAndAwardBadges();
-      alert('Scroll imported successfully. Your progress has been restored.');
-    } catch(err) {
-      alert('Failed to read scroll file: ' + err.message);
-    }
-  };
-  reader.readAsText(file);
-  input.value = '';
-}
-
-</script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
-<div class="container">
+<div class="container" id="main-content">
 
 
 
@@ -2218,17 +2498,21 @@ function importScroll(input) {
     </div>
   </div>
 
-<div class="tabs" id="main-tabs">
-  <div class="tab active" onclick="switchTab('daily')"    data-tab="daily">⚔ DAILY QUEST</div>
-  <div class="tab"        onclick="switchTab('rank')"     data-tab="rank">🏰 RANK & HONOURS</div>
-  <div class="tab"        onclick="switchTab('training')" data-tab="training">⚒ TRAINING</div>
-  <div class="tab"        onclick="switchTab('timer')"    data-tab="timer">⏱ TIMER</div>
-  <div class="tab"        onclick="switchTab('chronicle')"data-tab="chronicle">📊 CHRONICLE</div>
-  <div class="tab"        onclick="switchTab('codex')"    data-tab="codex">🧠 CODEX</div>
-  <div class="tab"        onclick="switchTab('sync')"     data-tab="sync">📱 SYNC</div>
+<!-- OFFLINE INDICATOR -->
+<div id="offline-bar" style="display:none;background:rgba(231,76,60,0.12);border-bottom:1px solid rgba(231,76,60,0.3);padding:4px 16px;font-family:var(--font-mono);font-size:9px;color:var(--red);letter-spacing:2px;text-align:center;">
+  📵 OFFLINE — DATA SAVED LOCALLY · WILL SYNC WHEN RECONNECTED
+</div>
+<div class="tabs" id="main-tabs" role="tablist" aria-label="Navigation">
+  <div class="tab active" onclick="switchTab('daily')" role="tab" aria-controls="panel-daily" aria-selected="true" type="button"    data-tab="daily">⚔ DAILY QUEST</div>
+  <div class="tab"        onclick="switchTab('rank')" role="tab" aria-controls="panel-rank" aria-selected="false" type="button"     data-tab="rank">🏰 RANK & HONOURS</div>
+  <div class="tab"        onclick="switchTab('training')" role="tab" aria-controls="panel-training" aria-selected="false" type="button" data-tab="training">⚒ TRAINING</div>
+  <div class="tab"        onclick="switchTab('timer')" role="tab" aria-controls="panel-timer" aria-selected="false" type="button"    data-tab="timer">⏱ TIMER</div>
+  <div class="tab"        onclick="switchTab('chronicle')" role="tab" aria-controls="panel-chronicle" aria-selected="false" type="button"data-tab="chronicle">📊 CHRONICLE</div>
+  <div class="tab"        onclick="switchTab('codex')" role="tab" aria-controls="panel-codex" aria-selected="false" type="button"    data-tab="codex">🧠 CODEX</div>
+  <div class="tab"        onclick="switchTab('sync')" role="tab" aria-controls="panel-sync" aria-selected="false" type="button"     data-tab="sync">📱 SYNC</div>
 </div>
 
-<div class="panel active" id="panel-daily">
+<div class="panel active" id="panel-daily" role="tabpanel" aria-label="⚔ DAILY QUEST">
 
 <!-- ① DATE HEADER -->
     <div style="text-align:center;padding:8px 0 18px;">
@@ -2244,9 +2528,10 @@ function importScroll(input) {
       <span style="font-size:16px;">📸</span>
       <div style="flex:1;min-width:100px;">
         <div style="font-family:var(--font-mono);font-size:8px;color:var(--blue);letter-spacing:2px;margin-bottom:2px;">MONTHLY CHRONICLE</div>
+        <div id="photo-gallery-count" style="font-family:var(--font-mono);font-size:8px;color:var(--text-dim);letter-spacing:1px;margin-bottom:3px;"></div>
         <div style="font-size:12px;color:var(--text);font-family:var(--font-body);">Capture your transformation — front &amp; side photo.</div>
       </div>
-      <button onclick="logPhotoTaken()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:5px 10px;background:transparent;border:1px solid var(--blue);color:var(--blue);cursor:pointer;">📸 DONE</button>
+      <button type="button" onclick="markPhotoTaken()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:5px 10px;background:transparent;border:1px solid var(--blue);color:var(--blue);cursor:pointer;">📸 DONE</button>
     </div>
 
     
@@ -2267,6 +2552,17 @@ function importScroll(input) {
 
     
 
+    <!-- DAILY MOTIVATIONAL QUOTE -->
+    <div id="daily-quote-banner" style="margin-bottom:10px;padding:10px 14px;background:rgba(124,77,255,0.05);border-left:2px solid var(--arcane);font-family:var(--font-body);font-size:14px;color:var(--text);line-height:1.6;font-style:italic;">
+      <span id="daily-quote-text"></span>
+      <div id="daily-quote-author" style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);margin-top:4px;letter-spacing:1px;font-style:normal;"></div>
+    </div>
+
+    <!-- RAMADAN MODE BANNER -->
+    <div id="ramadan-banner" style="display:none;margin-bottom:8px;padding:10px 14px;background:linear-gradient(135deg,rgba(46,204,113,0.08),rgba(245,200,66,0.06));border:1px solid rgba(46,204,113,0.25);font-family:var(--font-mono);font-size:9px;color:var(--green);letter-spacing:2px;text-align:center;">
+      &#9770; RAMADAN MUBARAK &#8212; WATER OATH SUSPENDED &#183; STEP TARGET 6K &#183; WORKOUT AFTER IFTAR
+    </div>
+
     <!-- COMEBACK BONUS BANNER -->
     <div id="comeback-banner" style="display:none;margin-bottom:8px;padding:10px 14px;
       background:linear-gradient(135deg,rgba(46,204,113,0.1),rgba(245,200,66,0.08));
@@ -2281,7 +2577,7 @@ function importScroll(input) {
         <div style="position:relative;width:72px;height:72px;margin:0 auto 4px;">
           <svg viewBox="0 0 72 72" style="width:72px;height:72px;transform:rotate(-90deg);">
             <circle cx="36" cy="36" r="30" fill="none" stroke="var(--border)" stroke-width="4"/>
-            <circle id="xp-ring" cx="36" cy="36" r="30" fill="none"
+            <circle id="xp-ring" aria-label="Today's honour progress ring" role="img" cx="36" cy="36" r="30" fill="none"
               stroke="url(#xpGrad)" stroke-width="4"
               stroke-linecap="round"
               stroke-dasharray="188.5" stroke-dashoffset="188.5"
@@ -2327,35 +2623,35 @@ function importScroll(input) {
 <!-- XP MISSIONS -->
     <div class="card-title" style="margin-bottom:10px;font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:2px;color:var(--accent)">⚔ DAILY OATHS — 5 × 20 HONOUR</div>
     <div class="mission-grid">
-      <div class="mission-item" id="m-workout" onclick="toggleMission(this,'workout',20)">
+      <div class="mission-item" id="m-workout" aria-label="⚔ Training session mission" onclick="toggleMission(this,'workout',20)">
         <div class="mission-check"></div>
         <div>
           <div class="mission-text">⚔ Training session completed at the grounds</div>
           <div class="mission-xp">+20 HONOUR</div>
         </div>
       </div>
-      <div class="mission-item" id="m-steps" onclick="toggleMission(this,'steps',20)">
+      <div class="mission-item" id="m-steps" aria-label="👣 10,000 steps mission" onclick="toggleMission(this,'steps',20)">
         <div class="mission-check"></div>
         <div>
           <div class="mission-text">🦶 8,000+ leagues marched today</div>
           <div class="mission-xp">+20 HONOUR</div>
         </div>
       </div>
-      <div class="mission-item" id="m-mobility" onclick="toggleMission(this,'mobility',20)">
+      <div class="mission-item" id="m-mobility" aria-label="🌿 Mobility and stretching mission" onclick="toggleMission(this,'mobility',20)">
         <div class="mission-check"></div>
         <div>
           <div class="mission-text">🌿 Limbering & restoration rite completed (10+ min)</div>
           <div class="mission-xp">+20 HONOUR</div>
         </div>
       </div>
-      <div class="mission-item" id="m-sun" onclick="toggleMission(this,'sun',20)">
+      <div class="mission-item" id="m-sun" aria-label="☀️ Morning sunlight mission" onclick="toggleMission(this,'sun',20)">
         <div class="mission-check"></div>
         <div>
           <div class="mission-text">☀ Sunlight vigil observed — 15–20 min outdoors</div>
           <div class="mission-xp">+20 HONOUR</div>
         </div>
       </div>
-      <div class="mission-item" id="m-water" onclick="toggleMission(this,'water',20)">
+      <div class="mission-item" id="m-water" aria-label="💧 3 litres of water mission" onclick="toggleMission(this,'water',20)">
         <div class="mission-check"></div>
         <div>
           <div class="mission-text">💧 Three flagons of water consumed</div>
@@ -2372,16 +2668,31 @@ function importScroll(input) {
 
     <!-- SEAL THE OATH -->
     <div style="margin-top:16px;">
-      <button onclick="completeDayAndSave()" class="seal-btn" id="seal-btn-main">⚔ SEAL THE OATH — CLAIM YOUR HONOUR ⚔</button>
+      <button onclick="completeDayAndSave()" class="seal-btn" id="seal-btn-main" aria-label="Seal today's oath and claim honour" type="button">⚔ SEAL THE OATH — CLAIM YOUR HONOUR ⚔</button>
       <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
-        <button onclick="openRankCeremony()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;flex:1;">🏰 RANK TRIAL</button>
-        <button id="injury-btn" onclick="toggleInjuryMode()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;flex:1;">🩹 INJURY MODE</button>
-        <button onclick="resetMissions()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;">↺ RESET</button>
+        <button type="button" onclick="openRankCeremony()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;flex:1;">🏰 RANK TRIAL</button>
+        <button type="button" id="injury-btn" onclick="toggleInjuryMode()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;flex:1;">🩹 INJURY MODE</button>
+        <button type="button" onclick="resetMissions()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;">↺ RESET</button>
+        <button type="button" id="ramadan-btn" onclick="toggleRamadanMode()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;">☪ RAMADAN</button>
+        <button type="button" id="sunday-rest-btn" onclick="toggleSundayRest()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;">🌙 SUN REST</button>
       </div>
     </div>
 
     <!-- STREAK NOTIFICATION -->
     <div id="streak-msg" style="display:none;margin-top:10px;padding:12px 16px;background:rgba(232,160,32,0.06);border:1px solid rgba(232,160,32,0.25);font-family:var(--font-display);font-size:11px;color:var(--gold);letter-spacing:2px;text-align:center;text-transform:uppercase;border-radius:2px;"></div>
+
+    <!-- SESSION QUICK LOG -->
+    <div id="session-quicklog-wrap" style="display:none;margin-top:10px;">
+      <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:2px;margin-bottom:6px;">📝 LOG TODAY'S SESSION</div>
+      <textarea id="session-quicklog-input" placeholder="What did you train? How did it feel? Any PRs?" 
+        style="width:100%;box-sizing:border-box;background:var(--bg2);border:1px solid var(--border);color:var(--text);
+        font-family:var(--font-body);font-size:13px;padding:10px 12px;resize:vertical;min-height:70px;
+        border-radius:2px;line-height:1.5;"></textarea>
+      <button type="button" onclick="saveSessionQuickLog()" style="margin-top:6px;font-family:var(--font-mono);font-size:9px;
+        letter-spacing:1px;padding:8px 16px;background:transparent;border:1px solid var(--green);
+        color:var(--green);cursor:pointer;">💾 SAVE LOG</button>
+    </div>
+
 
     <!-- RANK CEREMONY PANEL -->
     <div id="rank-ceremony-panel" style="display:none;margin-top:12px;background:var(--panel);border:1px solid rgba(245,200,66,0.3);padding:18px;box-shadow:0 0 20px rgba(245,200,66,0.08);border-radius:2px;">
@@ -2404,12 +2715,12 @@ function importScroll(input) {
       </div>
       <div id="squire-oaths" class="collapsible-body">
         <div class="mission-grid" style="margin-top:8px;">
-          <div class="mission-item" id="m-b1" onclick="toggleMission(this,'b1',0)"><div class="mission-check"></div><div><div class="mission-text">🌙 8 hours of sleep</div></div></div>
-          <div class="mission-item" id="m-b2" onclick="toggleMission(this,'b2',0)"><div class="mission-check"></div><div><div class="mission-text">🧘 5 min meditation</div></div></div>
-          <div class="mission-item" id="m-b3" onclick="toggleMission(this,'b3',0)"><div class="mission-check"></div><div><div class="mission-text">📵 No phone first 30 min</div></div></div>
-          <div class="mission-item" id="m-b4" onclick="toggleMission(this,'b4',0)"><div class="mission-check"></div><div><div class="mission-text">🥗 Clean meal consumed</div></div></div>
-          <div class="mission-item" id="m-b5" onclick="toggleMission(this,'b5',0)"><div class="mission-check"></div><div><div class="mission-text">📖 10 min reading</div></div></div>
-          <div class="mission-item" id="m-b6" onclick="toggleMission(this,'b6',0)"><div class="mission-check"></div><div><div class="mission-text">🌅 Morning routine completed</div></div></div>
+          <div class="mission-item" id="m-b1" onclick="toggleMission(this,'b1',0)"><div class="mission-check"></div><div><div class="mission-text">🌙 8 hours of sleep</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b2" onclick="toggleMission(this,'b2',0)"><div class="mission-check"></div><div><div class="mission-text">🧘 5 min meditation</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b3" onclick="toggleMission(this,'b3',0)"><div class="mission-check"></div><div><div class="mission-text">📵 No phone first 30 min</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b4" onclick="toggleMission(this,'b4',0)"><div class="mission-check"></div><div><div class="mission-text">🥗 Clean meal consumed</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b5" onclick="toggleMission(this,'b5',0)"><div class="mission-check"></div><div><div class="mission-text">📖 10 min reading</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
+          <div class="mission-item" id="m-b6" onclick="toggleMission(this,'b6',0)"><div class="mission-check"></div><div><div class="mission-text">🌅 Morning routine completed</div><div class="mission-xp" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">HABIT ONLY — NO HONOUR</div></div></div>
         </div>
       </div>
     </div>
@@ -2440,6 +2751,21 @@ function importScroll(input) {
         <div style="height:1px;flex:1;background:rgba(46,204,113,0.2);"></div>
       </div>
       <div id="weekly-stats-panel" class="collapsible-body">
+      <!-- WEEKLY REVIEW -->
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);">
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">📖 SUNDAY REVIEW — WEEKLY REFLECTION</div>
+        <div id="weekly-review-prompt" style="font-size:12px;color:var(--text-dim);line-height:1.7;margin-bottom:10px;"></div>
+        <textarea id="weekly-review-input" placeholder="What went well this week? What will you do differently?" 
+          style="width:100%;box-sizing:border-box;background:var(--bg2);border:1px solid var(--border);color:var(--text);
+          font-family:var(--font-body);font-size:13px;padding:10px 12px;resize:vertical;min-height:80px;border-radius:2px;line-height:1.5;"></textarea>
+        <button type="button" onclick="saveWeeklyReview()" style="margin-top:6px;font-family:var(--font-mono);font-size:9px;
+          letter-spacing:1px;padding:8px 16px;background:transparent;border:1px solid var(--gold);color:var(--gold);cursor:pointer;">
+          ⚔ SEAL THE WEEK
+        </button>
+        <div id="weekly-review-saved" style="display:none;margin-top:8px;font-family:var(--font-mono);font-size:9px;color:var(--green);letter-spacing:1px;">✅ REFLECTION SAVED</div>
+        <div id="past-reviews-wrap" style="margin-top:12px;"></div>
+      </div>
+
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0;">
           <div style="padding:10px;background:var(--bg2);border:1px solid var(--border);text-align:center;border-radius:2px;">
             <div style="font-family:var(--font-deco);font-size:22px;font-weight:700;color:var(--text);" id="total-xp-display">0</div>
@@ -2489,7 +2815,7 @@ function importScroll(input) {
   <span id="warmup-body" style="display:none;"></span>
 </div>
 
-<div class="panel" id="panel-rank">
+<div class="panel" id="panel-rank" role="tabpanel" aria-label="🏰 RANK">
 <div class="sec-title">THE PATH TO KNIGHTHOOD</div>
 
     <div class="level-grid">
@@ -2726,6 +3052,102 @@ function importScroll(input) {
     </div>
   </div>
 
+    <!-- ⚔ WARRIOR CONDITIONING SECTION ⚔ -->
+    <div style="margin-bottom:4px;">
+      <div onclick="toggleSection('warrior-conditioning')" style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 0;user-select:none;">
+        <div style="height:1px;flex:1;background:var(--border);"></div>
+        <div style="font-family:var(--font-deco);font-size:11px;color:var(--accent2);letter-spacing:2px;">⚔ WARRIOR CONDITIONING</div>
+        <span id="arrow-warrior-conditioning" style="font-size:10px;color:var(--text-dim);">▼</span>
+        <div style="height:1px;flex:1;background:var(--border);"></div>
+      </div>
+      <div id="warrior-conditioning" class="collapsible-body">
+
+        <div class="card" style="border-color:rgba(192,37,42,0.3);">
+          <div class="card-title" style="color:var(--accent2);">THE WARRIOR'S DAILY RITE</div>
+          <p style="font-size:13px;color:var(--text-dim);line-height:1.7;margin-bottom:14px;">A complete conditioning circuit combining joint preparation, strength, body hardening, and recovery. Perform in sequence as a standalone session or as an intensive warm-up block. Each movement is a brick in the warrior's armour.</p>
+        </div>
+
+        <div class="sec-title">PHASE 1 — JOINT PREPARATION</div>
+        <div class="card">
+          <table class="ex-table">
+            <tr><th>EXERCISE</th><th>DURATION / REPS</th><th>CUE</th></tr>
+            <tr><td><span class="ex-name">Joint Rotations</span> <span class="ex-tag">FULL BODY</span></td><td>60 sec total</td><td>Neck → shoulders → wrists → hips → knees → ankles in sequence. Slow, full range. Never skip.</td></tr>
+            <tr><td><span class="ex-name">Arm Swings</span></td><td>20 reps each direction</td><td>Straight-arm forward/back then cross-body. Open the chest, loosen the shoulder capsule.</td></tr>
+          </table>
+        </div>
+
+        <div class="sec-title">PHASE 2 — LOWER BODY ACTIVATION</div>
+        <div class="card blue">
+          <table class="ex-table">
+            <tr><th>EXERCISE</th><th>SETS × REPS</th><th>CUE</th></tr>
+            <tr><td><span class="ex-name">Light Squats</span> <span class="ex-tag">WARM-UP</span></td><td>2 × 15</td><td>Bodyweight only. 3-sec descent. Knees track toes. Activate before loading.</td></tr>
+            <tr><td><span class="ex-name">Horse Stance</span> <span class="ex-tag">ISOMETRIC</span></td><td>3 × 30–90 sec</td><td>Wide stance, thighs parallel to floor, back straight. Builds iron legs and hip stability. Progress: 30s → 60s → 90s.</td></tr>
+            <tr><td><span class="ex-name">Jump Lunges</span> <span class="ex-tag">POWER</span></td><td>3 × 8–12</td><td>Explosive alternating lunges. Land softly. Only once Horse Stance is comfortable. Builds leg power and cardio.</td></tr>
+          </table>
+        </div>
+
+        <div class="sec-title">PHASE 3 — UPPER BODY STRENGTH</div>
+        <div class="card purple">
+          <table class="ex-table">
+            <tr><th>EXERCISE</th><th>SETS × REPS</th><th>CUE</th></tr>
+            <tr><td><span class="ex-name">Push-ups</span> <span class="ex-tag">FOUNDATION</span></td><td>3 × 10–20</td><td>Full range, chest to floor. 3-sec descent. Core rigid. Master before progressing.</td></tr>
+            <tr><td><span class="ex-name">Decline Push-ups</span></td><td>3 × 8–15</td><td>Feet elevated on chair. Targets upper chest and front deltoids. Prerequisite: 20 clean floor push-ups.</td></tr>
+            <tr><td><span class="ex-name">Pull-ups / Negatives</span> <span class="ex-tag">BACK &amp; BICEP</span></td><td>3 × max / 5–8 negatives</td><td>No pull-up bar: jump to top, lower in 5–8 seconds. Negatives build strength faster than assisted reps.</td></tr>
+            <tr><td><span class="ex-name">Knuckle Push-ups</span> <span class="ex-tag">CONDITIONING</span></td><td>2 × 8–15</td><td>On hard floor. Hardens knuckles, aligns wrists, strengthens forearms. Start on carpet. Bone conditioning takes months.</td></tr>
+          </table>
+        </div>
+
+        <div class="sec-title">PHASE 4 — STRIKE &amp; IMPACT CONDITIONING</div>
+        <div class="card" style="border-color:rgba(232,160,32,0.25);">
+          <div style="font-size:11px;color:var(--orange);font-family:var(--font-mono);letter-spacing:1px;margin-bottom:10px;padding:6px 8px;background:rgba(232,160,32,0.06);border-radius:2px;">⚠ BUILD GRADUALLY · STOP IF SHARP PAIN · NOT FOR BEGINNERS</div>
+          <table class="ex-table">
+            <tr><th>EXERCISE</th><th>SETS × REPS</th><th>CUE</th></tr>
+            <tr><td><span class="ex-name">Palm Strikes</span></td><td>3 × 20 each hand</td><td>Strike a folded towel or heavy bag with the palm heel. Focus on alignment and wrist stability, not force.</td></tr>
+            <tr><td><span class="ex-name">Forearm Tapping</span></td><td>2 × 60 sec</td><td>Tap forearms together, gradually increasing force over weeks. Hardens the ulna and radius. Months-long process.</td></tr>
+            <tr><td><span class="ex-name">Thigh &amp; Shin Conditioning</span></td><td>2 × 30 sec per limb</td><td>Light palm tapping on thighs and shins. Conditions bone and fascia over time. Never bruise — too much too soon sets you back.</td></tr>
+          </table>
+        </div>
+
+        <div class="sec-title">PHASE 5 — CORE FORTIFICATION</div>
+        <div class="card green">
+          <table class="ex-table">
+            <tr><th>EXERCISE</th><th>SETS × REPS / DURATION</th><th>CUE</th></tr>
+            <tr><td><span class="ex-name">Ab Tension + Tapping</span></td><td>3 × 20–30 taps</td><td>Flex abs hard, hold, then tap with fingertips. Trains the core to brace under impact. Progress: light → moderate → partner taps.</td></tr>
+            <tr><td><span class="ex-name">Plank</span> <span class="ex-tag">FOUNDATION</span></td><td>3 × 45 sec → 3 min</td><td>Straight-arm or forearm. Core, glutes, quads all engaged. No sagging hips. Progress over the ranks.</td></tr>
+            <tr><td><span class="ex-name">Leg Raises</span></td><td>3 × 10–20</td><td>Lying flat, legs straight, lower back stays pressed to floor. Progress: bent knee → straight leg → hanging raises.</td></tr>
+          </table>
+        </div>
+
+        <div class="sec-title">PHASE 6 — RECOVERY RITE</div>
+        <div class="card" style="border-color:rgba(52,152,219,0.3);">
+          <table class="ex-table">
+            <tr><th>PRACTICE</th><th>DURATION</th><th>PURPOSE</th></tr>
+            <tr><td><span class="ex-name">Stretching</span> <span class="ex-tag">COOL-DOWN</span></td><td>8–10 min</td><td>Hip flexors, hamstrings, chest, shoulders, quads, calves. 30–45 sec each. Never stretch cold.</td></tr>
+            <tr><td><span class="ex-name">Cold Water</span></td><td>60–180 sec</td><td>End shower cold. Reduces inflammation, accelerates recovery, builds mental resilience. Start 30s, add 15s per week.</td></tr>
+            <tr><td><span class="ex-name">Seated Meditation</span></td><td>5–20 min</td><td>Sit upright, focus on breath. Reduces cortisol, sharpens focus, accelerates neural recovery. Not optional.</td></tr>
+          </table>
+        </div>
+
+        <div class="card" style="margin-top:8px;background:rgba(124,77,255,0.05);border-color:rgba(124,77,255,0.2);">
+          <div class="card-title" style="color:var(--arcane);">WARRIOR PROGRESSION BY RANK</div>
+          <table class="ex-table">
+            <tr><th>RANK</th><th>FOCUS</th><th>TARGETS</th></tr>
+            <tr><td><span class="ex-name">I — Call to Arms</span></td><td>Habit</td><td>Joint rotations daily · 10 push-ups · 45s plank · 5min meditation</td></tr>
+            <tr><td><span class="ex-name">II — Conscript</span></td><td>Foundation</td><td>20 push-ups · 60s horse stance · knuckle push-ups (carpet) · 60s cold water</td></tr>
+            <tr><td><span class="ex-name">III — Footsoldier</span></td><td>Strength</td><td>25 push-ups · 90s horse stance · 5 pull-up negatives · 90s plank · forearm tapping begins</td></tr>
+            <tr><td><span class="ex-name">IV — Man-at-Arms</span></td><td>Power</td><td>Decline push-ups · jump lunges · 5 pull-ups · ab tapping · 2min cold water</td></tr>
+            <tr><td><span class="ex-name">V — Squire</span></td><td>Conditioning</td><td>20 archer push-ups · 3min horse stance · 8 pull-ups · full impact circuit</td></tr>
+            <tr><td><span class="ex-name">VI — Knight</span></td><td>Elite</td><td>10 pike push-ups · 10 pull-ups · 3min plank · 20min meditation · shin/thigh conditioning</td></tr>
+            <tr><td><span class="ex-name">VII — Legend</span></td><td>Mastery</td><td>Pseudo-planche · 5 pistol squats · full 6-phase warrior rite daily</td></tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+    <!-- /WARRIOR CONDITIONING -->
+
+
+
   <div style="margin-bottom:4px;">
     <div onclick="toggleSection('merged-spoils-of-victory')" style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 0;user-select:none;">
       <div style="height:1px;flex:1;background:var(--border);"></div>
@@ -2895,7 +3317,36 @@ function importScroll(input) {
     </div>
 
     <!-- MONTHS 1-3 -->
-    <div class="card" style="margin-top:14px;">
+    
+    <!-- SHARE CARD -->
+    <div style="margin-bottom:12px;text-align:right;">
+      <button type="button" onclick="showShareCard()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:2px;
+        padding:8px 16px;background:transparent;border:1px solid var(--arcane);color:var(--arcane);cursor:pointer;">
+        📤 SHARE PROGRESS
+      </button>
+    </div>
+
+    <!-- SHARE CARD OVERLAY -->
+    <div id="share-overlay" onclick="document.getElementById('share-overlay').style.display='none'"
+      style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;
+      align-items:center;justify-content:center;">
+      <div onclick="event.stopPropagation()" style="background:var(--panel);border:1px solid var(--border);
+        max-width:340px;width:90%;padding:0;overflow:hidden;">
+        <canvas id="share-canvas" width="680" height="400" style="width:100%;display:block;"></canvas>
+        <div style="padding:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" onclick="downloadShareCard()" style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;
+            padding:8px 14px;background:transparent;border:1px solid var(--gold);color:var(--gold);cursor:pointer;flex:1;">
+            ⬇ SAVE IMAGE
+          </button>
+          <button type="button" onclick="document.getElementById('share-overlay').style.display='none'"
+            style="font-family:var(--font-mono);font-size:9px;letter-spacing:1px;
+            padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:pointer;">
+            CLOSE
+          </button>
+        </div>
+      </div>
+    </div>
+<div class="card" style="margin-top:14px;">
       <div class="card-title" style="color:var(--green);">⚔ MONTHS 1–3 · RANK I → III</div>
       <div style="font-size:13px;color:var(--text);line-height:1.9;margin-top:10px;">
         <p style="margin-bottom:10px;">Follow the <strong style="color:var(--gold);">📜 NOVICE TRIALS</strong> tab exactly. Every exercise has sets, reps, and tempo listed. The <strong style="color:var(--gold);">⏱ WAR TIMER</strong> tab has a preset for every plank hold in the system — use it constantly.</p>
@@ -2994,7 +3445,7 @@ function importScroll(input) {
   </div>
 </div>
 
-<div class="panel" id="panel-training">
+<div class="panel" id="panel-training" role="tabpanel" aria-label="⚒ TRAINING">
 <div class="sec-title">THE TRAINING GROUNDS SCHEDULE</div>
 
     <div class="card">
@@ -3470,7 +3921,7 @@ function importScroll(input) {
   </div>
 </div>
 
-<div class="panel" id="panel-timer">
+<div class="panel" id="panel-timer" role="tabpanel" aria-label="⏱ TIMER">
     <div class="sec-title">⏱ THE WAR TIMER</div>
     <p style="font-size:13px;color:var(--text-dim);margin-bottom:20px;">
       One tap to start. Use for planks, breathing holds, rest intervals, or any timed drill.
@@ -3480,21 +3931,21 @@ function importScroll(input) {
     <div class="card">
       <div class="card-title">QUICK-START PRESETS</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:12px;">
-        <button class="timer-preset" onclick="startTimer(20,'Plank — Rank I')">🛡 Plank 20s<br><span>Rank I</span></button>
-        <button class="timer-preset" onclick="startTimer(45,'Plank — Rank II')">🛡 Plank 45s<br><span>Rank II</span></button>
-        <button class="timer-preset" onclick="startTimer(75,'Plank — Rank III')">🛡 Plank 75s<br><span>Rank III</span></button>
-        <button class="timer-preset" onclick="startTimer(90,'Plank — Rank IV')">🛡 Plank 90s<br><span>Rank IV</span></button>
-        <button class="timer-preset" onclick="startTimer(120,'Plank — Rank V')">🛡 Plank 2 min<br><span>Rank V</span></button>
-        <button class="timer-preset" onclick="startTimer(180,'Plank — Rank VI')">🛡 Plank 3 min<br><span>Rank VI</span></button>
-        <button class="timer-preset" onclick="startTimer(240,'Plank — Rank VII')">🛡 Plank 4 min<br><span>Legend</span></button>
-        <button class="timer-preset" onclick="startTimer(30,'Hollow Hold')">🌀 Hollow 30s<br><span>Squire</span></button>
-        <button class="timer-preset" onclick="startTimer(60,'Hollow Hold')">🌀 Hollow 60s<br><span>Legend</span></button>
-        <button class="timer-preset" onclick="startTimer(16,'Box Breath — Full')">🌬 Box Breath<br><span>4-4-4-4</span></button>
-        <button class="timer-preset" onclick="startTimer(60,'Rest Between Sets')">💤 Rest 60s<br><span>Between sets</span></button>
-        <button class="timer-preset" onclick="startTimer(120,'Rest Between Sets')">💤 Rest 2 min<br><span>Heavy sets</span></button>
-        <button class="timer-preset" onclick="startTimer(60,'Sprint Interval')">🔥 Sprint 1 min<br><span>Interval R5</span></button>
-        <button class="timer-preset" onclick="startTimer(120,'Recovery Interval')">🧊 Recovery 2m<br><span>Post-sprint</span></button>
-        <button class="timer-preset" onclick="startTimer(300,'Mobility Session')">🌿 Mobility 5m<br><span>Daily rite</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(20,'Plank — Rank I')">🛡 Plank 20s<br><span>Rank I</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(45,'Plank — Rank II')">🛡 Plank 45s<br><span>Rank II</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(75,'Plank — Rank III')">🛡 Plank 75s<br><span>Rank III</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(90,'Plank — Rank IV')">🛡 Plank 90s<br><span>Rank IV</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(120,'Plank — Rank V')">🛡 Plank 2 min<br><span>Rank V</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(180,'Plank — Rank VI')">🛡 Plank 3 min<br><span>Rank VI</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(240,'Plank — Rank VII')">🛡 Plank 4 min<br><span>Legend</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(30,'Hollow Hold')">🌀 Hollow 30s<br><span>Squire</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(60,'Hollow Hold')">🌀 Hollow 60s<br><span>Legend</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(16,'Box Breath — Full')">🌬 Box Breath<br><span>4-4-4-4</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(60,'Rest Between Sets')">💤 Rest 60s<br><span>Between sets</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(120,'Rest Between Sets')">💤 Rest 2 min<br><span>Heavy sets</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(60,'Sprint Interval')">🔥 Sprint 1 min<br><span>Interval R5</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(120,'Recovery Interval')">🧊 Recovery 2m<br><span>Post-sprint</span></button>
+        <button type="button" class="timer-preset" onclick="startTimer(300,'Mobility Session')">🌿 Mobility 5m<br><span>Daily rite</span></button>
       </div>
     </div>
 
@@ -3508,7 +3959,7 @@ function importScroll(input) {
         <input id="custom-secs" type="number" min="0" max="59" value="0"
           style="width:70px;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--font-display);font-size:20px;padding:8px;text-align:center;">
         <span style="font-family:var(--font-mono);color:var(--text-dim);">sec</span>
-        <button onclick="startCustomTimer()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--gold);border:none;cursor:pointer;font-weight:700;">⚔ START</button>
+        <button type="button" onclick="startCustomTimer()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--gold);border:none;cursor:pointer;font-weight:700;">⚔ START</button>
       </div>
     </div>
 
@@ -3521,8 +3972,8 @@ function importScroll(input) {
           <div id="timer-progress-fill" style="height:100%;background:linear-gradient(90deg,var(--accent2),var(--gold));width:100%;border-radius:3px;transition:width 1s linear;"></div>
         </div>
         <div style="display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;">
-          <button id="timer-pause-btn" onclick="pauseTimer()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 20px;background:var(--panel);border:1px solid var(--accent);color:var(--accent);cursor:pointer;">⏸ PAUSE</button>
-          <button onclick="stopTimer()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 20px;background:var(--panel);border:1px solid var(--red);color:var(--red);cursor:pointer;">✕ STOP</button>
+          <button type="button" id="timer-pause-btn" onclick="pauseTimer()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 20px;background:var(--panel);border:1px solid var(--accent);color:var(--accent);cursor:pointer;">⏸ PAUSE</button>
+          <button type="button" onclick="stopTimer()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 20px;background:var(--panel);border:1px solid var(--red);color:var(--red);cursor:pointer;">✕ STOP</button>
         </div>
       </div>
     </div>
@@ -3548,13 +3999,13 @@ function importScroll(input) {
         <input id="interval-rounds" type="number" min="1" max="20" value="8"
           style="width:70px;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--font-display);font-size:16px;padding:8px;text-align:center;">
       </div>
-      <button onclick="startIntervals()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 22px;background:linear-gradient(135deg,var(--accent2),var(--gold));color:#000;border:none;cursor:pointer;font-weight:700;">⚔ BEGIN INTERVALS</button>
+      <button type="button" onclick="startIntervals()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 22px;background:linear-gradient(135deg,var(--accent2),var(--gold));color:#000;border:none;cursor:pointer;font-weight:700;">⚔ BEGIN INTERVALS</button>
       <div id="interval-status" style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--text-dim);"></div>
     </div>
 
   </div>
 
-<div class="panel" id="panel-chronicle">
+<div class="panel" id="panel-chronicle" role="tabpanel" aria-label="📊 CHRONICLE">
 <div class="sec-title">💪 BATTLE RECORDS — YOUR PERSONAL BESTS</div>
     <p style="font-size:13px;color:var(--text-dim);margin-bottom:20px;">
       Log what you actually did each session. Watch the numbers rise over 3 years.
@@ -3593,7 +4044,7 @@ function importScroll(input) {
         <label class="record-label">Session note (optional)</label>
         <textarea id="rec-note" rows="2" placeholder="How did it feel? Any pain? New PB?" style="width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--font-body);font-size:13px;padding:8px;margin-top:4px;resize:vertical;"></textarea>
       </div>
-      <button onclick="saveSessionRecord()" style="margin-top:10px;font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 22px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--gold);border:none;cursor:pointer;font-weight:700;">⚔ SEAL SESSION RECORD</button>
+      <button type="button" onclick="saveSessionRecord()" style="margin-top:10px;font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 22px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--gold);border:none;cursor:pointer;font-weight:700;">⚔ SEAL SESSION RECORD</button>
     </div>
 
     <!-- PERSONAL BESTS -->
@@ -3625,7 +4076,7 @@ function importScroll(input) {
           <input type="number" id="meas-arms" min="20" max="60" placeholder="0" class="record-input">
         </div>
       </div>
-      <button onclick="saveBodyMeasurement()" style="margin-top:10px;font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 22px;background:var(--panel);border:1px solid var(--accent);color:var(--accent);cursor:pointer;font-weight:700;">📊 LOG MEASUREMENT</button>
+      <button type="button" onclick="saveBodyMeasurement()" style="margin-top:10px;font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 22px;background:var(--panel);border:1px solid var(--accent);color:var(--accent);cursor:pointer;font-weight:700;">📊 LOG MEASUREMENT</button>
     </div>
 
     <!-- RECENT LOG -->
@@ -3817,7 +4268,23 @@ function importScroll(input) {
   </div>
 </div>
 
-<div class="panel" id="panel-codex">
+
+    <!-- MILESTONES TIMELINE -->
+    <div style="margin-bottom:4px;margin-top:8px;">
+      <div onclick="toggleSection('milestones-timeline')" style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 0;user-select:none;">
+        <div style="height:1px;flex:1;background:var(--border);"></div>
+        <div style="font-family:var(--font-deco);font-size:11px;color:var(--gold);letter-spacing:2px;">🏆 MILESTONES TIMELINE</div>
+        <span id="arrow-milestones-timeline" style="font-size:10px;color:var(--text-dim);">▼</span>
+        <div style="height:1px;flex:1;background:var(--border);"></div>
+      </div>
+      <div id="milestones-timeline" class="collapsible-body">
+        <div id="milestones-list" style="padding:4px 0;">
+          <div style="color:var(--text-dim);font-size:13px;padding:10px;">No milestones yet. Seal your first day to begin the chronicle.</div>
+        </div>
+      </div>
+    </div>
+
+<div class="panel" id="panel-codex" role="tabpanel" aria-label="🧠 CODEX">
 <div class="sec-title">THE DAILY MARCH — BUILDING LEAGUES</div>
     <div class="card">
       <table class="ex-table">
@@ -4304,7 +4771,7 @@ function importScroll(input) {
   </div>
 </div>
 
-<div class="panel" id="panel-sync">
+<div class="panel" id="panel-sync" role="tabpanel" aria-label="📱 SYNC">
     <div class="sec-title">📱 PHONE SYNC — ACCESS ON ANY DEVICE</div>
     <p style="font-size:13px;color:var(--text-dim);margin-bottom:20px;">
       Three ways to use this scroll on your phone. Choose the one that fits your setup.
@@ -4333,7 +4800,7 @@ function importScroll(input) {
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px;">
         <input id="qr-url-input" type="text" placeholder="https://your-hosting-url/fitness.html"
           style="flex:1;min-width:200px;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--font-mono);font-size:12px;padding:8px 12px;">
-        <button onclick="generateQR()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 16px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--gold);border:none;cursor:pointer;font-weight:700;">⚔ GENERATE QR</button>
+        <button type="button" onclick="generateQR()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 16px;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--gold);border:none;cursor:pointer;font-weight:700;">⚔ GENERATE QR</button>
       </div>
       <div id="qr-code-display" style="display:none;text-align:center;padding:20px;background:var(--bg);border:1px solid var(--border);">
         <div id="qr-canvas-container"></div>
@@ -4362,8 +4829,9 @@ function importScroll(input) {
         and import on the other. Good for occasional syncs.
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <button id="export-btn" onclick="exportScroll()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:var(--panel);border:1px solid var(--green);color:var(--green);cursor:pointer;font-weight:700;">⬇ EXPORT SCROLL</button>
-        <button onclick="document.getElementById('import-scroll-input').click()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:var(--panel);border:1px solid var(--blue);color:var(--blue);cursor:pointer;font-weight:700;">⬆ IMPORT SCROLL</button>
+        <button type="button" id="export-btn" onclick="exportScroll()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:var(--panel);border:1px solid var(--green);color:var(--green);cursor:pointer;font-weight:700;">⬇ EXPORT SCROLL</button>
+        <button type="button" onclick="document.getElementById('import-scroll-input').click()" style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;padding:10px 18px;background:var(--panel);border:1px solid var(--blue);color:var(--blue);cursor:pointer;font-weight:700;">⬆ IMPORT SCROLL</button>
+        <input type="file" id="import-scroll-input" accept=".json" style="display:none;" onchange="importScroll(this)">
       </div>
     </div>
 
@@ -4379,6 +4847,21 @@ function importScroll(input) {
 
 <script>
 // =========================================
+// CACHE BUSTER — runs on every load
+// =========================================
+(function() {
+  // Unregister any service workers that might cache old versions
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(regs) {
+      regs.forEach(function(reg) { reg.unregister(); });
+    });
+  }
+  // Log build ID to console so user can verify version
+
+})();
+
+
+// =========================================
 // TAB SWITCHING
 // =========================================
 function switchTab(id) {
@@ -4386,7 +4869,9 @@ function switchTab(id) {
   const panel = document.getElementById('panel-' + id);
   if (panel) panel.classList.add('active');
   document.querySelectorAll('.tab').forEach(t => {
-    t.classList.toggle('active', t.getAttribute('data-tab') === id);
+    const isActive = t.getAttribute('data-tab') === id;
+    t.classList.toggle('active', isActive);
+    t.setAttribute('aria-selected', isActive ? 'true' : 'false');
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (id === 'chronicle') { if (typeof renderHonourChart === 'function') renderHonourChart(); if (typeof renderPersonalBests === 'function') renderPersonalBests(); }
@@ -4397,6 +4882,14 @@ function switchTab(id) {
 // SECTION TOGGLE (collapsible drawers)
 // =========================================
 function toggleSection(id) {
+  // Trigger weekly review prompt refresh when opened
+  if (id === 'weekly-stats-panel') {
+    setTimeout(function() { updateWeeklyReviewPrompt(); renderPastReviews(); }, 50);
+  }
+  // Trigger milestones render when opened
+  if (id === 'milestones-timeline') {
+    setTimeout(function() { renderMilestonesTimeline(); }, 50);
+  }
   const body  = document.getElementById(id);
   const arrow = document.getElementById('arrow-' + id);
   if (!body) return;
@@ -4448,7 +4941,14 @@ let state = {
   sessionNotes: {},
   honourHistory: [],
   photoReminders: [],
-  monthlyChallenge: {}
+  monthlyChallenge: {},
+  weeklyReviews: {},
+  sessionQuickLog: {},
+  milestones: [],
+  photoLog: [],
+  ramadanMode: false,
+  ramadanYear: null,
+  sundayRest: true
 };
 
 function loadState() {
@@ -4458,6 +4958,21 @@ function loadState() {
   } catch(e) {}
 }
 function saveState() {
+  // Prune mission/penalty/sessionNote keys older than 90 days to keep storage lean
+  try {
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 90);
+    const cutoffStr = cutoff.getFullYear() + '-' +
+      String(cutoff.getMonth() + 1).padStart(2, '0') + '-' +
+      String(cutoff.getDate()).padStart(2, '0');
+    for (const key of ['missions', 'penalties', 'sessionNotes']) {
+      if (state[key]) {
+        for (const date of Object.keys(state[key])) {
+          if (date < cutoffStr) delete state[key][date];
+        }
+      }
+    }
+  } catch(e) {}
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
 }
 
@@ -4465,17 +4980,27 @@ function saveState() {
 // DATE HELPERS
 // =========================================
 function todayStr() {
-  return new Date().toISOString().slice(0, 10);
+  // Use local date parts to avoid UTC offset issues
+  // (Dubai = UTC+4: toISOString() returns yesterday before 4:00am local)
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const dy = String(d.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + dy;
 }
 
 // FIX: create a fresh Date object — avoid mutating the original
 function getWeekStart() {
+  // Use local date arithmetic to avoid UTC offset issues (Dubai = UTC+4)
   const now = new Date();
   const day = now.getDay(); // 0=Sun, 1=Mon...
   const diffToMonday = (day === 0) ? -6 : 1 - day;
   const monday = new Date(now);
   monday.setDate(now.getDate() + diffToMonday);
-  return monday.toISOString().slice(0, 10);
+  const y = monday.getFullYear();
+  const m = String(monday.getMonth() + 1).padStart(2, '0');
+  const d = String(monday.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + d;
 }
 
 function formatDate(iso) {
@@ -4494,11 +5019,25 @@ function getDayName() {
 // SUNDAY / SABBATH DETECTION (B8 fix)
 // =========================================
 function isSunday() {
-  return new Date().getDay() === 0;
+  // Only treat as Sabbath if sundayRest is enabled
+  return new Date().getDay() === 0 && state.sundayRest !== false;
 }
 
 function updateSundayMode() {
-  if (!isSunday()) return;
+  if (!isSunday()) {
+    // If Sunday rest is OFF, restore the workout item to normal
+    const workoutItem = document.getElementById('m-workout');
+    if (workoutItem) {
+      workoutItem.style.opacity = '';
+      workoutItem.style.pointerEvents = '';
+    }
+    const skipItem = document.getElementById('p-skip');
+    if (skipItem) {
+      skipItem.style.opacity = '';
+      skipItem.style.pointerEvents = '';
+    }
+    return;
+  }
   const workoutItem = document.getElementById('m-workout');
   if (workoutItem) {
     workoutItem.style.opacity = '0.4';
@@ -4538,6 +5077,11 @@ function getNetXP() {
 // XP MISSION TOGGLE
 // =========================================
 function toggleMission(el, key, xp) {
+  // Ramadan mode: water oath is suspended
+  if (state.ramadanMode && key === 'water') {
+    showToast('☪ Water oath suspended during Ramadan', 2000);
+    return;
+  }
   const today = todayStr();
   if (!state.missions[today]) state.missions[today] = {};
   const wasDone = !!state.missions[today][key];
@@ -4607,13 +5151,15 @@ function togglePenalty(el, key, delta) {
     state.penalties[today][key] = false;
     state.penaltyXP = (state.penaltyXP || 0) - delta; // undo: subtract negative = add back
     el.classList.remove('done');
-    el.querySelector('.mission-check').textContent = '';
+    const chkA = el.querySelector('.mission-check');
+    if (chkA) chkA.textContent = '';
   } else {
     state.penalties[today][key] = true;
     state.penaltyXP = (state.penaltyXP || 0) + delta; // apply negative delta
     state.penaltyXP = Math.max(-60, state.penaltyXP);  // floor: max total penalty = -60
     el.classList.add('done');
-    el.querySelector('.mission-check').textContent = '✓';
+    const chkB = el.querySelector('.mission-check');
+    if (chkB) chkB.textContent = '✓';
   }
   saveState();
   updateAllDisplays();
@@ -4729,10 +5275,13 @@ function completeDayAndSave() {
     if (state.honourHistory.length > 1095) state.honourHistory = state.honourHistory.slice(-1095);
   }
   checkAndAwardBadges();
+  recordAutoMilestones();
   saveState();
   updateAllDisplays();
   showCompletionMessage(netXP);
   showSealOverlay(netXP);
+  showSessionLogAfterSeal();
+  document.body.classList.add('day-sealed');
   // Push to cloud after saving (non-blocking)
   if (typeof fbDb !== 'undefined' && fbDb && fbSyncId) {
     pushToCloud().catch(() => {});
@@ -4761,21 +5310,47 @@ function showCompletionMessage(xp) {
 // =========================================
 function resetMissions() {
   const today = todayStr();
+
+  // If today was already sealed, reverse the XP that was committed
+  const wasSealed = state.savedDates && state.savedDates.includes(today);
+  if (wasSealed) {
+    // Find and remove today's honourHistory entry, reversing the XP
+    if (state.honourHistory && state.honourHistory.length) {
+      const idx = state.honourHistory.findIndex(h => h.date === today);
+      if (idx >= 0) {
+        const reversedXP = state.honourHistory[idx].honour;
+        state.totalXP   = Math.max(0, (state.totalXP || 0) - reversedXP);
+        state.weeklyXP  = Math.max(0, (state.weeklyXP || 0) - reversedXP);
+        state.honourHistory.splice(idx, 1);
+      }
+    }
+    // Reverse perfect day if it was a 100-honour seal
+    const baseXP = Math.max(0, (state.todayXP || 0) + (state.penaltyXP || 0));
+    if (baseXP === 100 && (state.perfectDays || 0) > 0) {
+      state.perfectDays--;
+    }
+    // Remove day-sealed body class so the seal button is usable again
+    document.body.classList.remove('day-sealed');
+  }
+
   state.missions[today]  = {};
   state.penalties[today] = {};
   state.todayXP   = 0;
   state.penaltyXP = 0;
+
   // Remove today from savedDates so it can be saved again after reset
   if (state.savedDates) {
     state.savedDates = state.savedDates.filter(d => d !== today);
   }
+
   document.querySelectorAll('.mission-item').forEach(el => {
     el.classList.remove('done');
     const c = el.querySelector('.mission-check');
     if (c) c.textContent = '';
   });
+
   // Decrement session count so this day doesn't count toward rank-up
-  if ((state.rankSessionsThisRank || 0) > 0) {
+  if (wasSealed && (state.rankSessionsThisRank || 0) > 0) {
     state.rankSessionsThisRank--;
   }
   saveState();
@@ -4828,6 +5403,13 @@ function updateAllDisplays() {
     const circumference = 188.5;
     const offset = circumference - (net / 100) * circumference;
     ring.style.strokeDashoffset = offset;
+    // Pulse animation on XP change
+    const ringWrap = ring.closest('svg') || ring.parentElement;
+    if (ringWrap) {
+      ringWrap.classList.remove('xp-ring-pulse');
+      void ringWrap.offsetWidth;
+      ringWrap.classList.add('xp-ring-pulse');
+    }
   }
   // Update seal button text with live count
   const sealBtn = document.getElementById('seal-btn-main');
@@ -4861,6 +5443,9 @@ function updateAllDisplays() {
     cbBanner.style.display = cbActive ? 'block' : 'none';
     if (cbDaysEl && cbActive) cbDaysEl.textContent = state.comebackDaysLeft;
   }
+  // Ramadan banner sync
+  const rbanner = document.getElementById('ramadan-banner');
+  if (rbanner) rbanner.style.display = state.ramadanMode ? 'block' : 'none';
 }
 
 // =========================================
@@ -4870,9 +5455,9 @@ function restoreTodayState() {
   const today = todayStr();
   const m = state.missions[today]  || {};
   const p = state.penalties[today] || {};
-  // Restore today's running XP from stored missions
+  // Restore today's running XP from stored missions (core + bonus habits)
   let restoredXP = 0;
-  ['workout','steps','mobility','sun','water'].forEach(k => { if (m[k]) restoredXP += 20; });
+  ['workout','steps','mobility','sun','water','b1','b2','b3','b4','b5','b6'].forEach(k => { if (m[k]) restoredXP += 20; });
   state.todayXP = Math.min(100, restoredXP);
   // Restore penalty XP from stored penalties
   let restoredPenalty = 0;
@@ -4924,10 +5509,11 @@ const RANK_MIN_SESSIONS = { 2:14, 3:24, 4:36, 5:48, 6:60, 7:72 };
 
 // Rank cooldown: minimum days since last rank-up (L1 fix)
 const RANK_COOLDOWN_DAYS = 14;
+const RANKS_MAX = 7; // update here if ranks are ever extended
 
 function canAttemptRankUp() {
   const nextRank = (state.currentRank || 1) + 1;
-  if (nextRank > 7) return { ok: false, reason: 'You have reached the highest rank.' };
+  if (nextRank > RANKS_MAX) return { ok: false, reason: 'You have reached the highest rank.' };
 
   const minXP = (nextRank - 1) * 1000;
   if ((state.totalXP || 0) < minXP) {
@@ -4988,8 +5574,8 @@ function openRankCeremony() {
           + '</div>';
   });
   html += '<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">'
-        + '<button onclick="submitTrialCertification(' + nextRank + ')" style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;padding:10px 20px;background:linear-gradient(135deg,var(--accent2),var(--gold));color:#000;border:none;cursor:pointer;">⚔ CERTIFY & ASCEND</button>'
-        + '<button onclick="closeRankCeremony()" class="sync-btn">RETREAT</button>'
+        + '<button type="button" onclick="submitTrialCertification(' + nextRank + ')" style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;padding:10px 20px;background:linear-gradient(135deg,var(--accent2),var(--gold));color:#000;border:none;cursor:pointer;">⚔ CERTIFY & ASCEND</button>'
+        + '<button type="button" onclick="closeRankCeremony()" class="sync-btn">RETREAT</button>'
         + '</div>';
   content.innerHTML = html;
   panel.style.display = 'block';
@@ -5002,7 +5588,7 @@ function submitTrialCertification(nextRank) {
     return cb && cb.checked;
   });
   if (!allChecked) {
-    alert('You must certify every trial before ascending. No shortcuts — the realm demands honesty.');
+    showToast('⚔ Certify every trial before ascending. No shortcuts — the realm demands honesty.', 3500);
     return;
   }
   if (!state.trialsCertified) state.trialsCertified = {};
@@ -5022,7 +5608,9 @@ function submitTrialCertification(nextRank) {
     msg.style.color = 'var(--gold)';
     setTimeout(() => { msg.style.display = 'none'; }, 7000);
   }
-  document.getElementById('rank-ceremony-panel').style.display = 'none';
+  const rcp = document.getElementById('rank-ceremony-panel');
+  if (rcp) rcp.style.display = 'none';
+  recordAutoMilestones();
   saveState();
   updateAllDisplays();
   checkAndAwardBadges();
@@ -5069,7 +5657,7 @@ function toggleInjuryMode() {
   }
   if (!state.injuryMode) {
     if ((state.injuryDaysUsed || 0) >= 14) {
-      alert('You have used your 14-day injury allowance for this year. It resets on January 1st.');
+      showToast('🩹 Injury allowance exhausted — 14 days used. Resets on January 1st.', 4000);
       return;
     }
     state.injuryMode = true;
@@ -5229,7 +5817,29 @@ function runBreath() {
 // =========================================
 // BOOT
 // =========================================
+// =========================================
+// LIGHT / DARK MODE TOGGLE
+// =========================================
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light-mode');
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) themeBtn.textContent = isLight ? '☀️' : '🌙';
+  try { localStorage.setItem('fitness_theme', isLight ? 'light' : 'dark'); } catch(e) {}
+}
+
+function loadTheme() {
+  try {
+    const saved = localStorage.getItem('fitness_theme');
+    if (saved === 'light') {
+      document.body.classList.add('light-mode');
+      const btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = '☀️';
+    }
+  } catch(e) {}
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  loadTheme();
   loadState();
 
   const today     = todayStr();
@@ -5259,6 +5869,12 @@ document.addEventListener('DOMContentLoaded', function() {
   if (state.comebackCount === undefined) state.comebackCount = 0;
   if (!state.lastExportDate)    state.lastExportDate    = null;
   if (!state.monthlyHonour)     state.monthlyHonour     = {};
+  if (!state.photoLog)          state.photoLog          = [];
+  if (!state.milestones)        state.milestones        = [];
+  if (!state.weeklyReviews)     state.weeklyReviews     = {};
+  if (!state.sessionQuickLog)   state.sessionQuickLog   = {};
+  if (state.ramadanMode        === undefined) state.ramadanMode   = false;
+  if (state.sundayRest         === undefined) state.sundayRest    = true;
   if (state.injuryMode        === undefined) state.injuryMode        = false;
   if (state.injuryDaysUsed    === undefined) state.injuryDaysUsed    = 0;
   if (state.rankSessionsThisRank === undefined) state.rankSessionsThisRank = 0;
@@ -5271,11 +5887,27 @@ document.addEventListener('DOMContentLoaded', function() {
   checkAndAwardBadges();
   updateAllDisplays();
   updateDailyTip();
+  updateDailyQuote();
   updateInjuryBtn();
   updateSundayMode();
   updateRankBanner();
+  updateRamadanBtn();
+  // Auto-expire Ramadan mode if it was set in a previous calendar year
+  if (state.ramadanMode && state.ramadanYear && state.ramadanYear !== new Date().getFullYear()) {
+    state.ramadanMode = false;
+    state.ramadanYear = null;
+    saveState();
+  }
+  updateRamadanBanner();
   renderAllNewPanels();
   initNewFeatures();
+  initOfflineIndicator();
+  updatePhotoGalleryCount();
+  renderMilestonesTimeline();
+  renderPastReviews();
+  updateWeeklyReviewPrompt();
+  recordAutoMilestones();
+  switchTab('daily');
   setTimeout(runBreath, 600);
 
   // Try to init Firebase if config was previously saved
@@ -5283,7 +5915,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const savedSyncId = localStorage.getItem('fitness_sync_id');
   if (savedConfig) {
     try {
-      document.getElementById('firebase-config-input').value = savedConfig;
+      const cfgEl = document.getElementById('firebase-config-input');
+      if (cfgEl) cfgEl.value = savedConfig;
       if (savedSyncId) state.syncId = savedSyncId;
       initFirebase(true); // silent init
     } catch(e) { setSyncStatus('error', 'Auto-connect failed — check config'); }
@@ -5366,7 +5999,7 @@ async function initFirebase(silent = false) {
     setSyncStatus('syncing', 'CONNECTING…');
 
     // Read config from textarea or localStorage
-    let configRaw = document.getElementById('firebase-config-input').value.trim();
+    let configRaw = (document.getElementById('firebase-config-input') || {}).value || '';
     if (!configRaw) configRaw = localStorage.getItem('fitness_firebase_config') || '';
     if (!configRaw) { setSyncStatus('error', 'No config provided'); return; }
 
@@ -5508,9 +6141,10 @@ async function forcePull() {
 
 // Import another device's data by sync ID
 async function importFromId() {
-  if (!fbDb) { alert('Bind the Cloud Scribe first.'); return; }
-  const importId = document.getElementById('import-id-input').value.trim();
-  if (!importId) { alert("Paste a sworn brother's Oath Seal first."); return; }
+  if (!fbDb) { showToast('⚔ Bind the Cloud Scribe first.', 2500); return; }
+  const importIdEl = document.getElementById('import-id-input');
+  const importId = importIdEl ? importIdEl.value.trim() : '';
+  if (!importId) { showToast("⚔ Paste a sworn brother's Oath Seal first.", 2500); return; }
   try {
     setSyncStatus('syncing', 'IMPORTING FROM DEVICE…');
     const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
@@ -5535,15 +6169,20 @@ async function importFromId() {
 }
 
 function clearFirebaseConfig() {
-  if (!confirm('Release the Cloud Scribe? Your local scroll remains safe.')) return;
-  localStorage.removeItem('fitness_firebase_config');
-  localStorage.removeItem('fitness_sync_id');
-  if (fbUnsubscribe) fbUnsubscribe();
-  fbDb = null; fbSyncId = null;
-  const idWrap = document.getElementById('sync-id-wrap');
-  if (idWrap) idWrap.style.display = 'none';
-  setSyncStatus('offline', 'SYNC UNBIND SCRIBEED — local only');
-  toggleSyncSetup();
+  // Show a toast with a 5-second undo window instead of a blocking confirm()
+  showToast('⚔ Unbinding Cloud Scribe… tap again within 5s to cancel.', 5000);
+  if (clearFirebaseConfig._pending) { clearTimeout(clearFirebaseConfig._pending); clearFirebaseConfig._pending = null; return; }
+  clearFirebaseConfig._pending = setTimeout(() => {
+    clearFirebaseConfig._pending = null;
+    localStorage.removeItem('fitness_firebase_config');
+    localStorage.removeItem('fitness_sync_id');
+    if (fbUnsubscribe) fbUnsubscribe();
+    fbDb = null; fbSyncId = null;
+    const idWrap = document.getElementById('sync-id-wrap');
+    if (idWrap) idWrap.style.display = 'none';
+    setSyncStatus('offline', 'CLOUD SCRIBE UNBOUND — local only');
+    toggleSyncSetup();
+  }, 5000);
 }
 
 // Smart merge: take the better value from each field
@@ -5710,16 +6349,16 @@ function exportScroll() {
     const url  = URL.createObjectURL(blob);
     const a    = document.createElement('a');
     a.href     = url;
+    a.download = 'path-to-knighthood-' + todayStr() + '.json';
     state.lastExportDate = todayStr();
-  saveState();
-  a.download = 'path-to-knighthood-' + todayStr() + '.json';
+    saveState();
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
     setSyncStatus('online', 'SCROLL EXPORTED — ' + todayStr());
   } catch(e) {
-    alert('Export failed: ' + e.message);
+    showToast('Export failed: ' + e.message, 3500);
   }
 }
 
@@ -5731,10 +6370,16 @@ function importScroll(input) {
     try {
       const imported = JSON.parse(e.target.result);
       if (typeof imported.totalXP === 'undefined') {
-        alert('Invalid scroll file — this does not appear to be a Path to Knighthood backup.');
+        showToast('⚠ Invalid scroll — this does not appear to be a Path to Knighthood backup.', 3500);
         return;
       }
-      if (!confirm('Import this scroll? Your current local progress will be REPLACED with the backup. This cannot be undone.')) return;
+      if (!importScroll._confirmed) {
+        importScroll._confirmed = true;
+        setTimeout(() => { importScroll._confirmed = false; }, 8000);
+        showToast('⚠ Tap IMPORT again within 8s to confirm — this REPLACES your local progress.', 8000);
+        return;
+      }
+      importScroll._confirmed = false;
       state = mergeStates(state, imported);
       if (!state.currentRank) state.currentRank = 1;
       if (!state.savedDates)  state.savedDates  = [];
@@ -5746,9 +6391,9 @@ function importScroll(input) {
       updateDailyTip();
       updateInjuryBtn();
       checkAndAwardBadges();
-      alert('⚔ Scroll imported. Your progress has been restored, warrior.');
+      showToast('⚔ Scroll imported. Your progress has been restored, warrior.', 3500);
     } catch(err) {
-      alert('Failed to read scroll: ' + err.message);
+      showToast('Failed to read scroll: ' + err.message, 3500);
     }
   };
   reader.readAsText(file);
@@ -5774,9 +6419,12 @@ function startTimer(seconds, label) {
   timerRemaining = seconds;
   timerLabel     = label;
   timerPaused    = false;
-  document.getElementById('timer-panel-display').style.display = 'block';
-  document.getElementById('timer-label-text').textContent = label.toUpperCase();
-  document.getElementById('timer-pause-btn').textContent = '⏸ PAUSE';
+  const timerDisp = document.getElementById('timer-panel-display');
+  const timerLbl  = document.getElementById('timer-label-text');
+  const timerPBtn = document.getElementById('timer-pause-btn');
+  if (timerDisp) timerDisp.style.display = 'block';
+  if (timerLbl)  timerLbl.textContent = label.toUpperCase();
+  if (timerPBtn) timerPBtn.textContent = '⏸ PAUSE';
   tickTimer();
   timerInterval = setInterval(tickTimer, 1000);
   switchTab('timer');
@@ -5793,10 +6441,12 @@ function startCustomTimer() {
 function tickTimer() {
   if (timerRemaining <= 0) {
     clearInterval(timerInterval);
-    document.getElementById('timer-countdown').textContent = '00:00';
-    document.getElementById('timer-countdown').style.color = 'var(--green)';
-    document.getElementById('timer-progress-fill').style.width = '0%';
-    document.getElementById('timer-label-text').textContent = timerLabel.toUpperCase() + ' — COMPLETE!';
+    const cdEl = document.getElementById('timer-countdown');
+    const pfEl = document.getElementById('timer-progress-fill');
+    const tlEl = document.getElementById('timer-label-text');
+    if (cdEl) { cdEl.textContent = '00:00'; cdEl.style.color = 'var(--green)'; }
+    if (pfEl) pfEl.style.width = '0%';
+    if (tlEl) tlEl.textContent = timerLabel.toUpperCase() + ' — COMPLETE!';
     // Beep via AudioContext if available
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -5818,10 +6468,12 @@ function tickTimer() {
   const s = timerRemaining % 60;
   const display = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
   const el = document.getElementById('timer-countdown');
-  if (el) el.textContent = display;
-  if (timerRemaining <= 5) el.style.color = 'var(--red)';
-  else if (timerRemaining <= 10) el.style.color = 'var(--orange)';
-  else el.style.color = 'var(--gold)';
+  if (el) {
+    el.textContent = display;
+    if (timerRemaining <= 5) el.style.color = 'var(--red)';
+    else if (timerRemaining <= 10) el.style.color = 'var(--orange)';
+    else el.style.color = 'var(--gold)';
+  }
   const pct = timerTotal > 0 ? (timerRemaining / timerTotal) * 100 : 0;
   const fill = document.getElementById('timer-progress-fill');
   if (fill) fill.style.width = pct + '%';
@@ -5866,7 +6518,7 @@ function runNextInterval() {
   if (st) st.textContent = 'Round ' + intervalRound + '/' + rounds + ' — ' + (intervalPhase === 'sprint' ? '🔥 SPRINT' : '🧊 RECOVERY');
   const dur   = intervalPhase === 'sprint' ? sprint : recovery;
   const label = intervalPhase === 'sprint'
-    ? 'SPRINT R5 — Round ' + intervalRound + '/' + rounds
+    ? 'SPRINT — Round ' + intervalRound + '/' + rounds
     : 'RECOVERY — Round ' + intervalRound + '/' + rounds;
   startTimer(dur, label);
   // After this timer ends, move to next phase
@@ -5898,7 +6550,8 @@ function saveSessionRecord() {
     rdl:     parseInt(document.getElementById('rec-rdl').value)     || 0,
     cycling: parseInt(document.getElementById('rec-cycling').value) || 0,
   };
-  const note = document.getElementById('rec-note').value.trim();
+  const noteEl2 = document.getElementById('rec-note');
+  const note = noteEl2 ? noteEl2.value.trim() : '';
   const today = todayStr();
 
   if (!state.personalRecords) state.personalRecords = {};
@@ -5933,7 +6586,7 @@ function saveSessionRecord() {
   const noteEl = document.getElementById('rec-note');
   if (noteEl) noteEl.value = '';
 
-  alert('\u2694 Session sealed in the chronicle, warrior.');
+  showToast('⚔ Session sealed in the chronicle, warrior.', 2500);
 }
 
 function saveBodyMeasurement() {
@@ -5943,7 +6596,7 @@ function saveBodyMeasurement() {
   const arms   = parseFloat(document.getElementById('meas-arms').value)   || 0;
 
   if (!weight && !waist && !chest && !arms) {
-    alert('Enter at least one measurement before sealing.');
+    showToast('⚠ Enter at least one measurement before sealing.', 2500);
     return;
   }
 
@@ -5956,7 +6609,7 @@ function saveBodyMeasurement() {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
-  alert('\u2694 Measurements sealed in the chronicle.');
+  showToast('⚔ Measurements sealed in the chronicle.', 2500);
 }
 
 function renderPersonalBests() {
@@ -6136,8 +6789,9 @@ function renderMonthlySummary(history) {
 // QR CODE GENERATOR (using qrcode.js via CDN)
 // =========================================
 function generateQR() {
-  const url = document.getElementById('qr-url-input').value.trim();
-  if (!url) { alert('Enter a URL first.'); return; }
+  const qrInp = document.getElementById('qr-url-input');
+  const url = qrInp ? qrInp.value.trim() : '';
+  if (!url) { showToast('⚔ Enter a URL to generate the QR seal.', 2500); return; }
   const container = document.getElementById('qr-canvas-container');
   const display   = document.getElementById('qr-code-display');
   if (!container || !display) return;
@@ -6305,7 +6959,7 @@ function saveMeasurements() {
     const inp = document.getElementById('minp-' + def.key);
     if (inp && inp.value) { entry[def.key] = parseFloat(inp.value); hasAny = true; }
   });
-  if (!hasAny) { alert('Enter at least one measurement.'); return; }
+  if (!hasAny) { showToast('⚠ Enter at least one measurement.', 2500); return; }
   if (!state.measureHistory) state.measureHistory = [];
   // Remove today if already logged
   state.measureHistory = state.measureHistory.filter(r => r.date !== todayStr());
@@ -6338,7 +6992,6 @@ const MAP_RANKS = [
 // =========================================
 // QR CODE GENERATOR (no external lib — pure canvas)
 // =========================================
-// (dead code removed: function generateQR(url) {)
 
 function drawQR(url, canvas) {
   if (typeof QRCode === 'undefined') { drawQRFallback(url, canvas); return; }
@@ -6393,8 +7046,8 @@ function togglePhase(header) {
 
 // =========================================
 function renderWeeklyReview() {
-  // Called when switching to chart tab — also adds weekly review to daily panel
-  const history = buildDailyHistory();
+  // Use live honourHistory (buildDailyHistory was removed — this is the live source)
+  const history = (state.honourHistory || []).map(h => ({ date: h.date, xp: h.honour }));
   const today   = todayStr();
   // Get this week's days (Mon–today)
   const weekStart = getWeekStart();
@@ -6438,13 +7091,6 @@ function checkPhotoReminder() {
   }
 }
 
-function logPhotoTaken() {
-  state.lastPhotoDate = todayStr();
-  saveState();
-  const banner = document.getElementById('photo-reminder-banner');
-  if (banner) banner.style.display = 'none';
-  alert('\u2694 Progress captured. The chronicle grows. Check your photos in 4 weeks and witness the transformation.');
-}
 
 // =========================================
 // WARM-UP TOGGLE
@@ -6648,7 +7294,9 @@ function checkStreakMilestone(streak) {
 window.addEventListener('scroll', function() {
   const btn = document.getElementById('scroll-top-btn');
   if (!btn) return;
-  btn.style.display = window.scrollY > 3
+  btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
+
 // =========================================
 // SEAL COMPLETION OVERLAY
 // =========================================
@@ -6665,8 +7313,11 @@ function showSealOverlay(xp) {
     20:  'One oath. The flame still burns.',
     0:   'No honour today. Rest, and return with fire.'
   };
-  const icon  = ICONS[xp]  || '⚔';
-  const msg   = MSGS[xp]   || 'The oath is sealed.';
+  // Cap band at 100 for icon/message lookup — comeback XP can exceed 100
+  const baseBand = Math.min(100, Math.round(xp / 20) * 20);
+  const xpBand = Math.max(0, baseBand);
+  const icon  = ICONS[xpBand] || '⚔';
+  const msg   = MSGS[xpBand]  || 'The oath is sealed.';
   const title = xp >= 100  ? 'PERFECT VIGIL'
               : xp >= 60   ? 'OATH SEALED'
               : xp >= 20   ? 'PARTIAL VIGIL'
@@ -6675,14 +7326,18 @@ function showSealOverlay(xp) {
               : xp >= 40 ? 'var(--accent)'
               :             'var(--accent2)';
 
-  document.getElementById('seal-overlay-icon').textContent  = icon;
-  document.getElementById('seal-overlay-title').textContent = title;
-  document.getElementById('seal-overlay-xp').textContent    = '+' + xp + ' HONOUR';
-  document.getElementById('seal-overlay-xp').style.color    = xpCol;
-  document.getElementById('seal-overlay-msg').textContent   = msg;
+  const soIcon  = document.getElementById('seal-overlay-icon');
+  const soTitle = document.getElementById('seal-overlay-title');
+  const soXP    = document.getElementById('seal-overlay-xp');
+  const soMsg   = document.getElementById('seal-overlay-msg');
+  if (soIcon)  soIcon.textContent  = icon;
+  if (soTitle) soTitle.textContent = title;
+  if (soXP)  { soXP.textContent   = '+' + xp + ' HONOUR'; soXP.style.color = xpCol; }
+  if (soMsg)   soMsg.textContent   = msg;
 
   // Re-trigger animation
-  const content = document.getElementById('seal-overlay-content');
+  const content =
+ document.getElementById('seal-overlay-content');
   content.style.animation = 'none';
   void content.offsetWidth;
   content.style.animation = '';
@@ -6710,8 +7365,6 @@ function showSealOverlay(xp) {
   // Auto-dismiss after 4 seconds
   setTimeout(() => overlay.classList.remove('show'), 4000);
 }
-00 ? 'flex' : 'none';
-});
 
 // =========================================
 // QUEST MAP DETAIL PANEL
@@ -6735,10 +7388,448 @@ function renderQuestMapDetail() {
     + '<div style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:2px;margin-bottom:8px;">' + info.days + '</div>'
     + '<div style="font-family:var(--font-body);font-size:13px;color:var(--text);line-height:1.7;">' + info.desc + '</div>'
     + '</div>';
-}</script>
+}
+// =========================================
+// MOTIVATIONAL QUOTES
+// =========================================
+const MOTIVATIONAL_QUOTES = [
+  { q: "The pain you feel today will be the strength you feel tomorrow.", a: "Arnold Schwarzenegger" },
+  { q: "A warrior does not give up what he loves. He finds the love in what he does.", a: "Dan Millman" },
+  { q: "Excellence is not a gift, but a skill that takes practice.", a: "Plato" },
+  { q: "The body achieves what the mind believes.", a: "Napoleon Hill" },
+  { q: "Do not pray for an easy life. Pray for the strength to endure a difficult one.", a: "Bruce Lee" },
+  { q: "I hated every minute of training, but I said to myself: suffer now, live the rest of your life as a champion.", a: "Muhammad Ali" },
+  { q: "It never gets easier. You just get stronger.", a: "Unknown" },
+  { q: "The successful warrior is the average man with laser-like focus.", a: "Bruce Lee" },
+  { q: "Strength does not come from physical capacity. It comes from an indomitable will.", a: "Mahatma Gandhi" },
+  { q: "What hurts today makes you stronger tomorrow.", a: "Jay Cutler" },
+  { q: "The iron never lies to you.", a: "Henry Rollins" },
+  { q: "Take care of your body. It is the only place you have to live.", a: "Jim Rohn" },
+  { q: "Training is not always about being physically stronger — it is about being mentally unbreakable.", a: "Path to Knighthood" },
+  { q: "Discipline is the bridge between goals and accomplishment.", a: "Jim Rohn" },
+  { q: "The secret is to show up every single day, no matter how small the effort.", a: "Path to Knighthood" },
+  { q: "Your body can stand almost anything. It is your mind you have to convince.", a: "Unknown" },
+  { q: "Success is the sum of small efforts, repeated day in and day out.", a: "Robert Collier" },
+  { q: "Champions aren't made in gyms. Champions are made from something deep inside them.", a: "Muhammad Ali" },
+  { q: "Push yourself, because no one else is going to do it for you.", a: "Unknown" },
+  { q: "The only bad workout is the one that didn't happen.", a: "Unknown" },
+  { q: "Be not afraid of going slowly. Be afraid only of standing still.", a: "Chinese Proverb" },
+  { q: "You don't have to be great to start, but you have to start to be great.", a: "Zig Ziglar" },
+  { q: "Every rep is a vote for the warrior you are becoming.", a: "Path to Knighthood" },
+  { q: "Sweat is just fat crying.", a: "Unknown" },
+  { q: "The knight who seals his oath every day cannot be defeated by time.", a: "Path to Knighthood" },
+  { q: "Pain is temporary. Quitting lasts forever.", a: "Lance Armstrong" },
+  { q: "Your current body is the only body that can take you to your new body — so be kind to it.", a: "Elaine Moran" },
+  { q: "Fall seven times, stand up eight.", a: "Japanese Proverb" },
+  { q: "Hard choices, easy life. Easy choices, hard life.", a: "Jerzy Gregorek" },
+  { q: "The man who moves a mountain begins by carrying away small stones.", a: "Confucius" },
+];
+
+function updateDailyQuote() {
+  const el = document.getElementById('daily-quote-text');
+  const au = document.getElementById('daily-quote-author');
+  if (!el || !au) return;
+  const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+  const q = MOTIVATIONAL_QUOTES[dayOfYear % MOTIVATIONAL_QUOTES.length];
+  el.textContent = '"' + q.q + '"';
+  au.textContent = '— ' + q.a;
+}
+
+// =========================================
+// OFFLINE INDICATOR
+// =========================================
+function updateOfflineBar() {
+  const bar = document.getElementById('offline-bar');
+  if (!bar) return;
+  bar.style.display = navigator.onLine ? 'none' : 'block';
+}
+
+function initOfflineIndicator() {
+  updateOfflineBar();
+  window.addEventListener('online',  updateOfflineBar);
+  window.addEventListener('offline', updateOfflineBar);
+}
+
+// =========================================
+// SESSION QUICK LOG
+// =========================================
+function saveSessionQuickLog() {
+  const input = document.getElementById('session-quicklog-input');
+  if (!input) return;
+  const text = input.value.trim();
+  if (!text) return;
+  const today = todayStr();
+  if (!state.sessionQuickLog) state.sessionQuickLog = {};
+  state.sessionQuickLog[today] = text;
+  saveState();
+  input.value = '';
+  const sqlWrap = document.getElementById('session-quicklog-wrap');
+  if (sqlWrap) sqlWrap.style.display = 'none';
+  // Record as milestone
+  recordMilestone('📝', 'Session logged: ' + text.slice(0, 60) + (text.length > 60 ? '…' : ''));
+  showToast('📝 Session logged to Chronicle', 2500);
+}
+
+function showSessionLogAfterSeal() {
+  const wrap = document.getElementById('session-quicklog-wrap');
+  if (wrap) wrap.style.display = 'block';
+}
+
+// =========================================
+// WEEKLY REVIEW
+// =========================================
+function updateWeeklyReviewPrompt() {
+  const prompt = document.getElementById('weekly-review-prompt');
+  if (!prompt) return;
+  const ws    = (state.weekStart || getWeekStart());
+  const wXP   = state.weeklyXP || 0;
+  const str   = state.streak || 0;
+  const perf  = state.perfectDays || 0;
+  const rank  = state.currentRank || 1;
+  const NAMES = {1:'Call to Arms',2:'Conscript',3:'Footsoldier',4:'Man-at-Arms',5:'Squire',6:'Knight',7:'Legend'};
+  prompt.innerHTML =
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">' +
+    '<div style="background:var(--bg2);padding:8px;text-align:center;"><div style="font-family:var(--font-mono);font-size:8px;color:var(--text-dim);letter-spacing:1px;">THIS WEEK</div><div style="font-size:20px;font-weight:700;color:var(--gold);">' + wXP + '</div><div style="font-family:var(--font-mono);font-size:8px;color:var(--text-dim);">HONOUR</div></div>' +
+    '<div style="background:var(--bg2);padding:8px;text-align:center;"><div style="font-family:var(--font-mono);font-size:8px;color:var(--text-dim);letter-spacing:1px;">STREAK</div><div style="font-size:20px;font-weight:700;color:var(--accent);">' + str + '</div><div style="font-family:var(--font-mono);font-size:8px;color:var(--text-dim);">DAYS</div></div>' +
+    '</div>' +
+    '<div style="font-size:12px;color:var(--text-dim);line-height:1.7;">' +
+    'Rank: <span style="color:var(--text);">' + rank + ' — ' + NAMES[rank] + '</span> · ' +
+    'Perfect days total: <span style="color:var(--text);">' + perf + '</span>' +
+    (wXP >= 560 ? ' · <span style="color:var(--gold);">⚔ BOSS WEEK ACHIEVED</span>' : '') +
+    '</div>';
+}
+
+function saveWeeklyReview() {
+  const input  = document.getElementById('weekly-review-input');
+  const saved  = document.getElementById('weekly-review-saved');
+  const past   = document.getElementById('past-reviews-wrap');
+  if (!input) return;
+  const text = input.value.trim();
+  if (!text) { showToast('Write your reflection first', 2000); return; }
+  const weekKey = getWeekStart(); // key by week-start — one review per week
+  if (!state.weeklyReviews) state.weeklyReviews = {};
+  state.weeklyReviews[weekKey] = { text, xp: state.weeklyXP || 0, streak: state.streak || 0, savedOn: todayStr() };
+  saveState();
+  input.value = '';
+  if (saved) { saved.style.display = 'block'; setTimeout(() => { saved.style.display = 'none'; }, 3000); }
+  renderPastReviews();
+  recordMilestone('📖', 'Weekly reflection saved');
+  if (typeof fbDb !== 'undefined' && fbDb && fbSyncId) pushToCloud().catch(() => {});
+}
+
+function renderPastReviews() {
+  const el = document.getElementById('past-reviews-wrap');
+  if (!el) return;
+  const reviews = state.weeklyReviews || {};
+  const keys = Object.keys(reviews).sort().reverse().slice(0, 5);
+  if (!keys.length) { el.innerHTML = ''; return; }
+  el.innerHTML = '<div style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:1px;margin-top:12px;margin-bottom:8px;">PAST REFLECTIONS</div>' +
+    keys.map(k => {
+      const r = reviews[k];
+      return '<div style="padding:10px 12px;background:var(--bg2);border-left:2px solid var(--border);margin-bottom:8px;">' +
+        '<div style="font-family:var(--font-mono);font-size:8px;color:var(--text-dim);letter-spacing:1px;margin-bottom:4px;">' + k + ' · ' + (r.xp || 0) + ' HONOUR · STREAK ' + (r.streak || 0) + '</div>' +
+        '<div style="font-size:13px;color:var(--text);line-height:1.6;">' + (r.text || '').replace(/</g,'&lt;') + '</div>' +
+        '</div>';
+    }).join('');
+}
+
+// =========================================
+// PHOTO LOG — gallery count
+// =========================================
+function markPhotoTaken() {
+  const today = todayStr();
+  state.lastPhotoDate = today;
+  if (!state.photoLog) state.photoLog = [];
+  if (!state.photoLog.includes(today)) state.photoLog.push(today);
+  saveState();
+  checkPhotoReminder();
+  updatePhotoGalleryCount();
+  recordMilestone('📸', 'Progress photo taken — photo #' + state.photoLog.length);
+  showToast('📸 Photo #' + state.photoLog.length + ' logged!', 3000);
+  if (typeof fbDb !== 'undefined' && fbDb && fbSyncId) pushToCloud().catch(() => {});
+}
+
+function updatePhotoGalleryCount() {
+  const el = document.getElementById('photo-gallery-count');
+  if (!el) return;
+  const photos = (state.photoLog || []).length;
+  if (photos === 0) {
+    el.textContent = 'No progress photos logged yet';
+  } else {
+    const last = state.lastPhotoDate;
+    const daysSince = last ? Math.floor((new Date(todayStr()+'T12:00:00') - new Date(last+'T12:00:00')) / 86400000) : 0;
+    el.textContent = 'Photo ' + photos + ' of your journey · Last: ' + daysSince + 'd ago';
+  }
+}
+
+// =========================================
+// MILESTONES TIMELINE
+// =========================================
+function recordMilestone(icon, text) {
+  if (!state.milestones) state.milestones = [];
+  const today = todayStr();
+  // Avoid exact duplicates on same day
+  const exists = state.milestones.some(m => m.date === today && m.text === text);
+  if (exists) return;
+  state.milestones.unshift({ date: today, icon, text });
+  if (state.milestones.length > 200) state.milestones = state.milestones.slice(0, 200);
+  saveState();
+  renderMilestonesTimeline();
+}
+
+function recordAutoMilestones() {
+  const r = state.currentRank || 1;
+  const t = state.totalXP || 0;
+  const s = state.streak || 0;
+  const p = state.perfectDays || 0;
+  const d = (state.savedDates || []).length;
+  // Rank milestones
+  const RANK_NAMES = {1:'Call to Arms',2:'Conscript',3:'Footsoldier',4:'Man-at-Arms',5:'Squire',6:'Knight',7:'Legend'};
+  if (r > 1 && state.milestones && !state.milestones.some(m => m.text.includes('Rank ' + r + ' —'))) {
+    recordMilestone('⚔', 'Rank ' + r + ' — ' + RANK_NAMES[r] + ' achieved');
+  }
+  // XP milestones
+  const xpMilestones = [1000,5000,10000,25000,50000,75000];
+  xpMilestones.forEach(xp => {
+    if (t >= xp && state.milestones && !state.milestones.some(m => m.text.includes(xp.toLocaleString() + ' Honour'))) {
+      recordMilestone('💎', xp.toLocaleString() + ' Honour reached');
+    }
+  });
+  // Streak milestones
+  [7,14,30,60,90,180,365].forEach(n => {
+    if (s >= n && state.milestones && !state.milestones.some(m => m.text === n + '-day streak achieved')) {
+      recordMilestone('🔥', n + '-day streak achieved');
+    }
+  });
+  // Perfect days
+  [10,50,100].forEach(n => {
+    if (p >= n && state.milestones && !state.milestones.some(m => m.text === n + ' perfect days')) {
+      recordMilestone('💯', n + ' perfect days');
+    }
+  });
+  // Days sealed
+  [100,365,730].forEach(n => {
+    if (d >= n && state.milestones && !state.milestones.some(m => m.text === n + ' days sealed')) {
+      recordMilestone('📅', n + ' days sealed');
+    }
+  });
+}
+
+function renderMilestonesTimeline() {
+  const el = document.getElementById('milestones-list');
+  if (!el) return;
+  const milestones = state.milestones || [];
+  if (!milestones.length) {
+    el.innerHTML = '<div style="color:var(--text-dim);font-size:13px;padding:10px;">No milestones yet. Seal your first day to begin the chronicle.</div>';
+    return;
+  }
+  el.innerHTML = milestones.map((m, i) => {
+    const isFirst = i === 0;
+    return '<div style="display:flex;gap:12px;align-items:flex-start;padding:8px 0;' + (i < milestones.length-1 ? 'border-bottom:1px solid var(--border);' : '') + '">' +
+      '<div style="font-size:20px;flex-shrink:0;">' + m.icon + '</div>' +
+      '<div style="flex:1;">' +
+      '<div style="font-size:13px;color:var(--text);line-height:1.5;">' + m.text + '</div>' +
+      '<div style="font-family:var(--font-mono);font-size:8px;color:var(--text-dim);letter-spacing:1px;margin-top:2px;">' + m.date + (isFirst ? ' · LATEST' : '') + '</div>' +
+      '</div></div>';
+  }).join('');
+}
+
+// =========================================
+// SUNDAY REST TOGGLE
+// =========================================
+function toggleSundayRest() {
+  state.sundayRest = !state.sundayRest;
+  saveState();
+  updateSundayRestBtn();
+  // Re-apply or remove Sunday mode based on new setting
+  if (new Date().getDay() === 0) {
+    updateSundayMode();
+    updateAllDisplays();
+  }
+  showToast(state.sundayRest
+    ? '🌙 Sunday Rest ON — Sabbath is honoured'
+    : '⚔ Sunday Rest OFF — Seven days of training', 3000);
+  if (typeof fbDb !== 'undefined' && fbDb && fbSyncId) pushToCloud().catch(() => {});
+}
+
+function updateSundayRestBtn() {
+  const btn = document.getElementById('sunday-rest-btn');
+  if (!btn) return;
+  if (state.sundayRest !== false) {
+    btn.textContent = '🌙 SUN REST';
+    btn.style.borderColor = '';
+    btn.style.color = 'var(--text-dim)';
+  } else {
+    btn.textContent = '⚔ SUN TRAIN';
+    btn.style.borderColor = 'rgba(232,160,32,0.5)';
+    btn.style.color = 'var(--gold)';
+  }
+}
+
+// =========================================
+// RAMADAN MODE
+// =========================================
+function toggleRamadanMode() {
+  state.ramadanMode = !state.ramadanMode;
+  if (state.ramadanMode) {
+    state.ramadanYear = new Date().getFullYear();
+    showToast('☪ Ramadan Mode active — water oath suspended · step target 6K', 4000);
+  } else {
+    showToast('Ramadan Mode deactivated', 2500);
+  }
+  saveState();
+  updateRamadanBtn();
+  updateRamadanBanner();
+  updateAllDisplays();
+  if (typeof fbDb !== 'undefined' && fbDb && fbSyncId) pushToCloud().catch(() => {});
+}
+
+function updateRamadanBtn() {
+  const btn = document.getElementById('ramadan-btn');
+  if (!btn) return;
+  if (state.ramadanMode) {
+    btn.textContent = '☪ RAMADAN ON';
+    btn.style.borderColor = 'rgba(46,204,113,0.5)';
+    btn.style.color = 'var(--green)';
+  } else {
+    btn.textContent = '☪ RAMADAN';
+    btn.style.borderColor = '';
+    btn.style.color = 'var(--text-dim)';
+  }
+}
+
+function updateRamadanBanner() {
+  const banner = document.getElementById('ramadan-banner');
+  if (banner) banner.style.display = state.ramadanMode ? 'block' : 'none';
+  // In Ramadan mode: water mission opacity reduced
+  const waterMission = document.getElementById('m-water');
+  if (waterMission) {
+    if (state.ramadanMode) {
+      waterMission.style.opacity = '0.45';
+      waterMission.style.pointerEvents = 'none';
+      const lbl = waterMission.querySelector('.mission-text') || waterMission.querySelector('.mission-label');
+      if (lbl) lbl.innerHTML = '💧 Water (suspended — Ramadan)';
+    } else {
+      waterMission.style.opacity = '';
+      waterMission.style.pointerEvents = '';
+      const lbl = waterMission.querySelector('.mission-text') || waterMission.querySelector('.mission-label');
+      if (lbl) lbl.innerHTML = '💧 3 litres of water';
+    }
+  }
+}
+
+// =========================================
+// SHARE CARD (Canvas)
+// =========================================
+function showShareCard() {
+  const overlay  = document.getElementById('share-overlay');
+  const canvas   = document.getElementById('share-canvas');
+  if (!overlay || !canvas) return;
+
+  const rank  = state.currentRank || 1;
+  const xp    = state.totalXP || 0;
+  const str   = state.streak || 0;
+  const perf  = state.perfectDays || 0;
+  const days  = (state.savedDates || []).length;
+  const NAMES = {1:'CALL TO ARMS',2:'CONSCRIPT',3:'FOOTSOLDIER',4:'MAN-AT-ARMS',5:'SQUIRE',6:'KNIGHT',7:'LEGEND'};
+  const ICONS = {1:'🌾',2:'⚔',3:'🛡',4:'🗡',5:'🏹',6:'🏰',7:'👑'};
+
+  const ctx = canvas.getContext('2d');
+  const W = 680, H = 400;
+
+  // Background
+  ctx.fillStyle = '#0b0c14';
+  ctx.fillRect(0, 0, W, H);
+
+  // Top accent bar
+  const grad = ctx.createLinearGradient(0,0,W,0);
+  grad.addColorStop(0, '#c0252a');
+  grad.addColorStop(0.5, '#f5c842');
+  grad.addColorStop(1, '#7c4dff');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, 4);
+
+  // Bottom accent bar
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, H-4, W, 4);
+
+  // Title
+  ctx.fillStyle = '#f5c842';
+  ctx.font = 'bold 13px monospace';
+  ctx.letterSpacing = '4px';
+  ctx.textAlign = 'center';
+  ctx.fillText('PATH TO KNIGHTHOOD', W/2, 42);
+
+  // Rank icon + name
+  ctx.font = '56px serif';
+  ctx.fillText(ICONS[rank] || '⚔', W/2, 115);
+
+  ctx.fillStyle = '#f5c842';
+  ctx.font = 'bold 22px serif';
+  ctx.fillText('RANK ' + rank + ' — ' + NAMES[rank], W/2, 148);
+
+  // Divider
+  ctx.strokeStyle = 'rgba(245,200,66,0.2)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(60, 165); ctx.lineTo(W-60, 165); ctx.stroke();
+
+  // Stats grid
+  const stats = [
+    { label: 'TOTAL HONOUR', value: xp.toLocaleString() },
+    { label: 'STREAK', value: str + ' days' },
+    { label: 'PERFECT DAYS', value: perf.toString() },
+    { label: 'DAYS SEALED', value: days.toString() },
+  ];
+  const colW = (W - 120) / 4;
+  stats.forEach((s, i) => {
+    const x = 60 + i * colW + colW / 2;
+    ctx.fillStyle = 'rgba(245,200,66,0.08)';
+    ctx.fillRect(60 + i*colW + 4, 178, colW - 8, 90);
+    ctx.fillStyle = '#f5c842';
+    ctx.font = 'bold 24px monospace';
+    ctx.fillText(s.value, x, 215);
+    ctx.fillStyle = 'rgba(220,228,245,0.5)';
+    ctx.font = '9px monospace';
+    ctx.fillText(s.label, x, 252);
+  });
+
+  // Today's date
+  ctx.fillStyle = 'rgba(220,228,245,0.35)';
+  ctx.font = '11px monospace';
+  ctx.fillText(todayStr(), W/2, 308);
+
+  // Motivational line
+  const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+  const quote = MOTIVATIONAL_QUOTES[dayOfYear % MOTIVATIONAL_QUOTES.length];
+  ctx.fillStyle = 'rgba(220,228,245,0.45)';
+  ctx.font = 'italic 12px serif';
+  // Wrap long quotes
+  const words = ('"' + quote.q + '"').split(' ');
+  let line = '', lines = [], maxW = W - 120;
+  ctx.font = 'italic 12px serif';
+  words.forEach(w => {
+    const test = line + (line ? ' ' : '') + w;
+    if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; }
+    else line = test;
+  });
+  if (line) lines.push(line);
+  lines.slice(0, 2).forEach((l, i) => ctx.fillText(l, W/2, 335 + i * 18));
+
+  overlay.style.display = 'flex';
+}
+
+function downloadShareCard() {
+  const canvas = document.getElementById('share-canvas');
+  if (!canvas) return;
+  const a = document.createElement('a');
+  a.href = canvas.toDataURL('image/png');
+  a.download = 'path-to-knighthood-' + todayStr() + '.png';
+  a.click();
+}
+</script>
 
   <!-- Floating scroll-to-top button -->
-  <button id="scroll-top-btn" onclick="var ca=document.querySelector('.content-area');if(ca)ca.scrollTo({top:0,behavior:'smooth'});else window.scrollTo({top:0,behavior:'smooth'});"
+  <button type="button" id="scroll-top-btn" onclick="var ca=document.querySelector('.content-area');if(ca)ca.scrollTo({top:0,behavior:'smooth'});else window.scrollTo({top:0,behavior:'smooth'});"
     style="position:fixed;bottom:20px;right:20px;z-index:9998;
       width:40px;height:40px;border-radius:50%;
       background:linear-gradient(135deg,var(--accent2),var(--accent));
@@ -6773,5 +7864,6 @@ function renderQuestMapDetail() {
     </div>
   </div>
 
+<button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle light and dark mode" type="button">🌙</button>
 </body>
 </html>
